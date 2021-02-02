@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "git-commit-msg-linter": "^3.0.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0"
   }
 }
