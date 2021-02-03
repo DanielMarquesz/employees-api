@@ -3,7 +3,14 @@ const router = express.Router();
 const Employees = require("../models/Employees");
 
 router.get("/", async (req, res) => {
-  res.send("Olha o Macaco");
+  await Employees.findAll()
+    .then((employees) => {
+      console.log(employees);
+      res.json(employees);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 });
 
 module.exports = router;

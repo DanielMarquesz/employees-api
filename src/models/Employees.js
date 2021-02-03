@@ -15,10 +15,13 @@ Employees.init(
       allowNull: false,
     },
 
-    ocupation: {
+    ocuppation: {
       type: DataTypes.STRING(128),
       allowNull: false,
     },
+
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     sequelize: connection,
