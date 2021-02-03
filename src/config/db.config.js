@@ -7,5 +7,8 @@ module.exports = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME, // Set the name of database
+  define: {
+    timestamps: true,
+  },
   // timezone: "-03:00",
 };

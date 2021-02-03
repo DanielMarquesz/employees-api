@@ -1,5 +1,6 @@
 const { DataTypes, Model } = require("sequelize");
 const connection = require("../database/connection");
+const Ocuppation = require("./Ocuppation");
 
 class Employees extends Model {}
 
@@ -10,13 +11,13 @@ Employees.init(
       allowNull: false,
     },
 
-    age: {
-      type: DataTypes.INTEGER,
+    ocuppation: {
+      type: DataTypes.STRING(128),
       allowNull: false,
     },
 
-    ocupation: {
-      type: DataTypes.STRING(128),
+    age: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
@@ -26,6 +27,8 @@ Employees.init(
   }
 );
 
-Employees.sync({ force: true }); // To create the table set 'True', but after created once set 'False'
+Ocuppation.belongsTo(Employees);
+
+//Employees.sync({ force: true }); // To create the table set 'True', but after created once set 'False'
 
 module.exports = Employees;
