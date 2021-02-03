@@ -27,7 +27,8 @@ Employees.init(
   }
 );
 
-Ocuppation.belongsTo(Employees);
+Ocuppation.hasMany(Employees);
+Employees.belongsTo(Ocuppation);
 
 //Employees.sync({ force: true }); // To create the table set 'True', but after created once set 'False'
 

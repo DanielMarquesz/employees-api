@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const Employees = require("../models/Employees");
+const Ocupation = require("../models/Ocuppation");
 
 router.get("/list", async (req, res) => {
-  await Employees.findAll()
-    .then((employees) => {
-      res.json(employees);
+  await Ocupation.findAll()
+    .then((ocupations) => {
+      res.json(ocupations);
     })
     .catch((err) => {
       res.send(err);
@@ -13,9 +13,9 @@ router.get("/list", async (req, res) => {
 });
 
 router.post("/create", async (req, res) => {
-  let employee = { ...req.body };
+  let ocupations = { ...req.body };
 
-  await Employees.create(employee)
+  await Ocupation.create(ocupations)
     .then(() => {
       res.sendStatus(201);
     })
@@ -26,8 +26,8 @@ router.post("/create", async (req, res) => {
 
 router.put("/edit/:id", async (req, res) => {
   let id = req.params.id;
-  let employee = { ...req.body };
-  await Employees.update(employee, { where: { id: id } })
+  let ocupations = { ...req.body };
+  await Ocupation.update(ocupations, { where: { id: id } })
     .then(() => {
       res.sendStatus(201);
     })
@@ -39,7 +39,7 @@ router.put("/edit/:id", async (req, res) => {
 router.delete("/remove/:id", async (req, res) => {
   let id = req.params.id;
 
-  await Employees.destroy({ where: { id: id } })
+  await Ocupation.destroy({ where: { id: id } })
     .then(() => {
       res.sendStatus(200);
     })
