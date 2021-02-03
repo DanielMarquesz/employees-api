@@ -1,32 +1,30 @@
 const { DataTypes, Model } = require("sequelize");
 const connection = require("../database/connection");
 
-class Employees extends Model {}
-
-Employees.init(
-  {
-    name: {
-      type: DataTypes.STRING(128),
-      allowNull: false,
-    },
-
-    age: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-
-    ocuppation: {
-      type: DataTypes.STRING(128),
-      allowNull: false,
-    },
-
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    sequelize: connection,
-    modelName: "Employees",
+class Employees extends Model {
+  static init(connection) {
+    super.init(
+      {
+        name: DataTypes.STRING(128),
+        allowNull: false,
+      },
+      {
+        age: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      {
+        sequelize: connection,
+      }
+    );
   }
-);
+
+  static associate(models) {
+    this.belongsTo(models.Ocuppation, {
+      foreignKey: "idOcuppation",
+      targetKey: "id",
+      as: "Ocuppation",
+    });
+  }
+}
 
 module.exports = Employees;
