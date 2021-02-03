@@ -1,0 +1,24 @@
+<%- include ('../partials/header.ejs') %>
+<body>
+  <div class="container" style="width: 50%">
+    <div class="card" style="margin-top: 6rem; text-align: center">
+      <div class="card-header">
+        <h2>Cadastrar Cargo</h2>
+      </div>
+      <div class="card-body">
+        <form action="/ocuppations/save" method="POST">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Cargo"
+              name="ocuppation"
+            />
+          </div>
+          <button class="btn btn-success" type="submit">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+<%- include ('../partials/footer.ejs') %>

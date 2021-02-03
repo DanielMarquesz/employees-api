@@ -1,0 +1,23 @@
+<%- include ('../partials/header.ejs') %>
+
+<body>
+  <div class="container" style="width: 50%">
+    <div class="card" style="margin-top: 6rem; text-align: center">
+      <div class="card-header">
+        <h1>Cargos</h1>
+        <div class="card-body">
+          <ul style="list-style: none">
+            <% ocuppations.forEach(objota => { %>
+
+            <li><h4><%= objota.ocuppation %></h4></li>
+
+            <% }) %>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<%- include ('../partials/footer.ejs') %>
