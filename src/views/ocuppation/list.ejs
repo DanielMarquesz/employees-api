@@ -10,7 +10,7 @@
             <thead>
               <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Função</th>
+                <th scope="col">Título</th>
                 <th scope="col">Ações</th>
               </tr>
             </thead>
@@ -20,17 +20,22 @@
                 <td><%= ocuppation.id %></td>
                 <td><%= ocuppation.ocuppation %></td>
                 <td>
-                  <button class="btn btn-primary">Atualizar</button>
+                  <a href="/ocuppations/edit/<%= ocuppation.id %>"
+                    ><button class="btn btn-primary">Atualizar</button></a
+                  >
                   <a href="/ocuppations/remove/<%= ocuppation.id %>">
-                    <button class="btn btn-danger">
-                      Remover <%= ocuppation.id %>
-                    </button></a
+                    <button class="btn btn-danger">Remover</button></a
                   >
                 </td>
               </tr>
               <% }) %>
             </tbody>
           </table>
+          <a href="/ocuppations/register">
+            <button class="btn" style="float: right; background-color: #1bbf4f">
+              Novo cargo
+            </button>
+          </a>
         </div>
       </div>
     </div>

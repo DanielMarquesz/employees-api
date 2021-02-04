@@ -3,7 +3,23 @@
   <div class="container" style="width: 50%">
     <div class="card" style="margin-top: 6rem; text-align: center">
       <div class="card-header">
-        <h2>Edição</h2>
+        <h2>Atualizar Cargo</h2>
+      </div>
+      <div class="card-body">
+        <form action="/ocuppations/update" method="POST">
+          <div class="input-group mb-3">
+            <input type="hidden" name="id" value="<%= ocuppation.id %>" />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Digite o novo cargo"
+              name="ocuppation"
+              value="<%= ocuppation.ocuppation %>"
+            />
+          </div>
+
+          <button class="btn btn-success" type="submit">Atualizar</button>
+        </form>
       </div>
     </div>
   </div>

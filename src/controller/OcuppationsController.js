@@ -22,23 +22,37 @@ router.get("/register", (req, res) => {
 router.post("/save", async (req, res) => {
   // Método de Cadastro dos Funcionários
   let ocuppations = { ...req.body };
-  console.log(ocuppations);
 
   await Ocuppation.create(ocuppations)
     .then((ocuppation) => {
-      res.redirect("/ocuppations/list").sendStatus(201);
+      res.status(201).redirect("/ocuppations/list");
     })
     .catch((err) => {
       res.send(err);
     });
 });
 
-router.put("/edit/:id", async (req, res) => {
+router.get("/edit/:id", async (req, res) => {
   let id = req.params.id;
-  let ocuppations = { ...req.body };
-  await Ocuppation.update(ocuppations, { where: { id: id } })
-    .then(() => {
-      res.render("ocuppation/edit");
+
+  await Ocuppation.findByPk(id)
+    .then((ocuppation) => {
+      if (ocuppation != undefined) {
+        res.render("ocuppation/edit", { ocuppation: ocuppation });
+      }
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
+router.post("/update", async (req, res) => {
+  let id = req.body.id;
+  let ocuppation = req.body.ocuppation;
+
+  await Ocuppation.update({ ocuppation: ocuppation }, { where: { id: id } })
+    .then((ocuppation) => {
+      res.status(201).redirect("/ocuppations/list");
     })
     .catch((err) => {
       res.send(err);
