@@ -22,27 +22,13 @@ router.get("/register", (req, res) => {
 router.post("/save", async (req, res) => {
   // Método de Cadastro dos Funcionários
   let ocuppations = { ...req.body };
-  console.log(ocuppations);
-
   await Ocuppation.create(ocuppations)
-    .then((ocuppation) => {
-      res.redirect("/ocuppations/list").sendStatus(201);
+    .then(() => {
+      res.status(201).redirect("/ocuppations/list");
     })
     .catch((err) => {
       res.send(err);
-    });
-
-  // if (ocuppations != undefined) {
-  //   await Ocuppation.create(ocuppations)
-  //     .then((ocuppation) => {
-  //       res.redirect("/ocuppations/list").sendStatus(201);
-  //     })
-  //     .catch((err) => {
-  //       res.send(err);
-  //     });
-  // } else {
-  //   res.redirect("/list");
-  // }
+    });  
 });
 
 router.put("/edit/:id", async (req, res) => {
