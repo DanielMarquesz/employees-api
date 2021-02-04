@@ -1,0 +1,51 @@
+<%- include ('../partials/header.ejs') %>
+<body>
+  <div class="container" style="width: 50%">
+    <div class="card" style="margin-top: 6rem; text-align: center">
+      <div class="card-header">
+        <h2>Cadastrar Colaborador</h2>
+      </div>
+      <div class="card-body">
+        <form action="/employees/save" method="POST">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nome"
+              name="name"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Idade"
+              name="age"
+              min="14"
+              max="65"
+            />
+          </div>
+          <div class="form-group">
+            <select
+              class="form-control"
+              placeholder="cargo"
+              name="ocuppationId"
+            >
+              <% ocuppation.forEach(ocu => { %>
+              <option value="<%= ocu.id %>"><%= ocu.ocuppation %></option>
+              <%})%>
+            </select>
+          </div>
+          <button
+            class="btn btn-success"
+            type="submit"
+            style="margin-top: 2rem"
+          >
+            Cadastrar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+<%- include ('../partials/footer.ejs') %>

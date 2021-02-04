@@ -1,0 +1,49 @@
+<%- include ('../partials/header.ejs') %>
+
+<body>
+  <div class="container" style="width: 70%">
+    <div class="card" style="margin-top: 3rem; text-align: center">
+      <div class="card-header">
+        <h1>Colaboradores</h1>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Cargo</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% employees.forEach(employee => { %>
+              <tr>
+                <td><%= employee.id %></td>
+                <td><%= employee.name %></td>
+                <td><%= employee.age %></td>
+                <td><%= employee.OcuppationId %></td>
+                <td>
+                  <a href="/edit/<%= employee.id %>"
+                    ><button class="btn btn-primary">Atualizar</button></a
+                  >
+                  <a href="/employees/remove/<%= employee.id %>">
+                    <button class="btn btn-danger">Remover</button></a
+                  >
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+          <a href="/employees/register">
+            <button class="btn" style="float: right; background-color: #1bbf4f">
+              Novo colaborador
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<%- include ('../partials/footer.ejs') %>
