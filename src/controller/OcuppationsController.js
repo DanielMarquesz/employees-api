@@ -22,13 +22,15 @@ router.get("/register", (req, res) => {
 router.post("/save", async (req, res) => {
   // Método de Cadastro dos Funcionários
   let ocuppations = { ...req.body };
+  console.log(ocuppations);
+
   await Ocuppation.create(ocuppations)
-    .then(() => {
-      res.status(201).redirect("/ocuppations/list");
+    .then((ocuppation) => {
+      res.redirect("/ocuppations/list").sendStatus(201);
     })
     .catch((err) => {
       res.send(err);
-    });  
+    });
 });
 
 router.put("/edit/:id", async (req, res) => {
@@ -43,12 +45,13 @@ router.put("/edit/:id", async (req, res) => {
     });
 });
 
-router.delete("/remove/:id", async (req, res) => {
-  let id = req.params.id;
+router.get("/remove/:id", async (req, res) => {
+  // Delete an Entity for Db
+  let id = parseInt(req.params.id);
 
   await Ocuppation.destroy({ where: { id: id } })
     .then(() => {
-      res.sendStatus(200);
+      res.redirect("/ocuppations/list");
     })
     .catch((err) => {
       res.send(err);

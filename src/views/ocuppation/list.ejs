@@ -2,7 +2,7 @@
 
 <body>
   <div class="container" style="width: 50%">
-    <div class="card" style="margin-top: 6rem; text-align: center">
+    <div class="card" style="margin-top: 3rem; text-align: center">
       <div class="card-header">
         <h1>Cargos</h1>
         <div class="card-body">
@@ -11,21 +11,22 @@
               <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Função</th>
-                <th scope="col"></th>
                 <th scope="col">Ações</th>
-                
               </tr>
             </thead>
             <tbody>
-              <% ocuppations.forEach(objota => { %>
+              <% ocuppations.forEach(ocuppation => { %>
               <tr>
-                <td><%= objota.id %></td>
-                <td><%= objota.ocuppation %></td>
+                <td><%= ocuppation.id %></td>
+                <td><%= ocuppation.ocuppation %></td>
                 <td>
-                  <td><button class="btn btn-primary">Atualizar</button></td>
-                  <td><button class="btn btn-danger">Remover</button></td>
+                  <button class="btn btn-primary">Atualizar</button>
+                  <a href="/ocuppations/remove/<%= ocuppation.id %>">
+                    <button class="btn btn-danger">
+                      Remover <%= ocuppation.id %>
+                    </button></a
+                  >
                 </td>
-                
               </tr>
               <% }) %>
             </tbody>
