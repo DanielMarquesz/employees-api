@@ -6,11 +6,14 @@
       <div class="card-header">
         <h1>Cargos</h1>
         <div class="card-body">
-          <table class="table">
+          <table class="table table-striped">
             <thead>
               <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Função</th>
+                <th scope="col"></th>
+                <th scope="col">Ações</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -18,6 +21,11 @@
               <tr>
                 <td><%= objota.id %></td>
                 <td><%= objota.ocuppation %></td>
+                <td>
+                  <td><button class="btn btn-primary">Atualizar</button></td>
+                  <td><button class="btn btn-danger">Remover</button></td>
+                </td>
+                
               </tr>
               <% }) %>
             </tbody>
