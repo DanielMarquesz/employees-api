@@ -13,24 +13,20 @@ router.get("/list", async (req, res) => {
     });
 });
 
-// router.get("/list/:id", async (req, res) => {
-//   let id = req.params.id;
+router.get("/list/:id", async (req, res) => {
+  let id = req.params.id;
 
-//   if (isNaN(id)) res.sendStatus(400);
-//   else {
-//     await Employees.findByPk(id)
-//       .then((employees) => {
-//         if (employees === null) {
-//           res.sendStatus(404);
-//         } else {
-//           res.status(200).json(employees);
-//         }
-//       })
-//       .catch((err) => {
-//         res.send(err).json(err);
-//       });
-//   }
-// });
+  if (isNaN(id)) res.sendStatus(400);
+  else {
+    await Employees.findByPk(id)
+      .then((employees) => {
+        res.status(200).json(employees);
+      })
+      .catch((err) => {
+        res.send(err).json(err);
+      });
+  }
+});
 
 router.post("/create", async (req, res, next) => {
   // try {
