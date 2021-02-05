@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const EmployeesController = require("./controller/EmployeesController");
 const OcuppationsController = require("./controller/OcuppationsControler");
-const logger = require("./logs/logger");
+const logger = require("./utils/logs/logger");
 
 app.use(bodyParser.json());
 
@@ -16,8 +16,8 @@ app.use("/ocuppations", OcuppationsController);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  logger.log(`info`, `The Server is Running in the Port: ${port}`);
-  console.log(`The Server is Running in the Port: localhost:${port}`);
+  logger.log(`info`, `The server is running in : ${port}`);
+  console.log(`The server is running in : localhost:${port}`);
 });
 
 module.exports = app;
