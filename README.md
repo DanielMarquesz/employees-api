@@ -36,7 +36,7 @@ Tendo em mente que para cadastrar um funcionário é necessário antes cadastrar
 - http://restemployeesapi-com.umbler.net/ocuppations/{rotadefinida} - Para as Rotas de Ocupações 
 
 
-# Rotas:
+# Rotas
 
 <hr>
 
