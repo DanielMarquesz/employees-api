@@ -3,7 +3,7 @@
 ## Função
 
 Api desenvolvida com intuito de permitir operações de CRUD(Create - Read - Update - Delete), utilizando duas entidades: Empregados e Ocuppações.
-Visando a agilidade a tabela de Ocupações permite o cadastro de funções que um funcionário pode exercer em uma empresa, logo a tabela de Empregados tem um relacionamento 1:1 com ocupações.
+Visando a agilidade, a tabela de Ocupações permite o cadastro de funções que um funcionário pode exercer em uma empresa, logo a tabela de Empregados tem um relacionamento 1:1 com a tabela Ocupações.
 
 
 ### Empregados 
@@ -29,8 +29,8 @@ updatedAt | timestamp | Not Null
 
 # Como usar
 
-Através de uma das ferramentas de testes de Apis Postman ou  Insomnia, testando as rotas a seguir.
-Tendo em mente que para cadastrar um funcionário é necessário antes cadastrar uma função.
+Através de uma das ferramentas de testes de Apis: [Postman](https://www.postman.com) ou [Insomnia](https://insomnia.rest), testando as rotas a seguir.
+Tendo em mente que para cadastrar um funcionário é necessário antes cadastrar uma ocupação.
 
 - http://restemployeesapi-com.umbler.net/employees/{rotadefinida} - Para as Rotas de Empregados
 - http://restemployeesapi-com.umbler.net/ocuppations/{rotadefinida} - Para as Rotas de Ocupações 
@@ -123,12 +123,12 @@ Status Code | Descrição |
 
 <hr>
 
-### Rotas : Funções
+### Rotas : Ocupações
 
 ### @Get: http://restemployeesapi-com.umbler.net/ocuppations/list
 
 
-* Retorna todos as funções cadastradas no sistema
+* Retorna todos as ocupações cadastradas no sistema
 
 Status Code | Descrição | 
  :------------- |  :-------------: |
@@ -136,7 +136,7 @@ Status Code | Descrição |
 500 | Erro interno no servidor  | 
 
 
-### @Get: http://restemployeesapi-com.umbler.net/employees/list/{id}
+### @Get: http://restemployeesapi-com.umbler.net/ocuppations/list/{id}
 
 * Passando um id para retornar um usuário específico
 
@@ -147,9 +147,9 @@ Status Code | Descrição |
 404 | Entidade não encontrada  | 
 
 
-### @Post: http://restemployeesapi-com.umbler.net/employees/create
+### @Post: http://restemployeesapi-com.umbler.net/ocuppations/create
 
-* Cadastra uma função no sistema
+* Cadastra uma ocupação no sistema
 
 * Payload
 
@@ -168,7 +168,7 @@ Status Code | Descrição |
 400 | Solicitação inválida ao servidor | 
 
 
-### @Put: http://restemployeesapi-com.umbler.net/employees/edit/{id}
+### @Put: http://restemployeesapi-com.umbler.net/ocuppations/edit/{id}
 
 * Edita o registro selecionado.
 
@@ -190,7 +190,7 @@ Status Code | Descrição |
 400 | Requisição inválida ao servidor  | 
 
 
-### @Delete: http://restemployeesapi-com.umbler.net/employees/delete/{id}
+### @Delete: http://restemployeesapi-com.umbler.net/ocuppations/delete/{id}
 
 * Deleta um registro selecionado
 
@@ -199,6 +199,12 @@ Status Code | Descrição |
 200  | Requisição feita com sucesso  | 
 400 | Requisição inválida ao servidor  | 
 500 | Erro interno do servidor |
+
+
+
+
+
+
 
 
 
