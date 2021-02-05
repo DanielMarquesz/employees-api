@@ -96,7 +96,7 @@ Status Code | Descrição |
 
 ```
 {
-    "name":"Car",
+    "name":"Carol",
     "age":23,    
     "OcuppationId":4,
     "createdAt":"2019-09-28T10:55:51.603",
@@ -149,14 +149,35 @@ Status Code | Descrição |
 
 ### @Post: http://restemployeesapi-com.umbler.net/employees/create
 
-* Cadastra um funcionário no sistema
+* Cadastra uma função no sistema
 
 * Payload
 
 
 ```
 {
-    "name":"Daniel",
+    "name":"Estagiário",
+    "createdAt":"2019-09-28T10:55:51.603",
+    "updatedAt":"2020-09-28T10:55:51.603"
+}
+```
+
+Status Code | Descrição | 
+ :------------- |  :-------------: |
+201  | Entidade criada com sucesso  | 
+400 | Solicitação inválida ao servidor | 
+
+
+### @Put: http://restemployeesapi-com.umbler.net/employees/edit/{id}
+
+* Edita o registro selecionado.
+
+* Payload
+
+
+```
+{
+    "name":"Estagiário de Tecnologia",
     "createdAt":"2019-09-28T10:55:51.603",
     "updatedAt":"2020-09-28T10:55:51.603"
 }
@@ -166,36 +187,12 @@ Status Code | Descrição |
 Status Code | Descrição | 
  :------------- |  :-------------: |
 201  | Entidade criada com sucesso  | 
-400 | Solicitação inválida ao servidor  | 
-404 | Entidade não encontrada |
-
-### @Put: http://restemployeesapi-com.umbler.net/employees/edit/{id}
-
-* Cadastra um funcionário no sistema
-
-* Payload
-
-
-```
-{
-    "name":"Car",
-    "age":23,    
-    "OcuppationId":4,
-    "createdAt":"2019-09-28T10:55:51.603",
-    "updatedAt":"2020-09-28T10:55:51.604"
-}
-```
-
-
-Status Code | Descrição | 
- :------------- |  :-------------: |
-201  | Entidade criada com sucesso  | 
 400 | Requisição inválida ao servidor  | 
-404 | Entidade não encontrada |
+
 
 ### @Delete: http://restemployeesapi-com.umbler.net/employees/delete/{id}
 
-* Deleta um funcionário no sistema
+* Deleta um registro selecionado
 
 Status Code | Descrição | 
  :------------- |  :-------------: |
