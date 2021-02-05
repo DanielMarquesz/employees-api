@@ -1,5 +1,6 @@
 const express = require("express");
 const Employees = require("../models/Employees");
+const logger = require("../logs/logger");
 // const { gamesSchema } = require("../validations/models/gamesSchema"); JOI VALIDATION
 const router = express.Router();
 
@@ -39,9 +40,11 @@ router.post("/create", async (req, res, next) => {
 
   await Employees.create(employees)
     .then((employees) => {
+      logger.log(`error`, `${err}`);
       res.status(201).json(employees);
     })
     .catch((err) => {
+      logger.log(`error`, `${err}`);
       res.send(err).json(err);
     });
 });
@@ -59,6 +62,7 @@ router.put("/edit/:id", async (req, res) => {
         res.status(201).send(employees);
       })
       .catch((err) => {
+        logger.log(`error`, `${err}`);
         res.send(err).json(err);
       });
   }
@@ -74,6 +78,7 @@ router.delete("/delete/:id", async (req, res) => {
         res.sendStatus(200);
       })
       .catch((err) => {
+        logger.log(`error`, `${err}`);
         res.send(err);
       });
   }

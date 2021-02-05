@@ -24,7 +24,8 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "prettier": "^2.2.1",
-    "sequelize": "^6.5.0"
+    "sequelize": "^6.5.0",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "git-commit-msg-linter": "^3.0.0",
