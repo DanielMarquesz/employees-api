@@ -1,4 +1,4 @@
-// const env = require("dotenv").config().parsed;
+
 require("dotenv").config();
 
 module.exports = {
@@ -6,6 +6,6 @@ module.exports = {
   host: process.env.DB_HOST,
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME, // Set the name of database
-  // timezone: "-03:00",
+  database: process.env.DB_NAME, 
+  timezone: "-03:00",
 };
