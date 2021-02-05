@@ -1,5 +1,6 @@
 const express = require("express");
 const Ocuppations = require("../models/Ocuppations");
+const logger = require("../utils/logs/logger");
 // const { gamesSchema } = require("../validations/models/gamesSchema"); JOI VALIDATION
 const router = express.Router();
 
@@ -9,6 +10,7 @@ router.get("/list", async (req, res) => {
       res.status(200).json(ocuppations);
     })
     .catch((err) => {
+      logger.log(`error`, `${err}`);
       res.sendStatus(500).send(err);
     });
 });
@@ -23,6 +25,7 @@ router.get("/list/:id", async (req, res) => {
         res.status(200).json(ocuppations);
       })
       .catch((err) => {
+        logger.log(`error`, `${err}`);
         res.send(err).json(err);
       });
   }
@@ -42,6 +45,7 @@ router.post("/create", async (req, res, next) => {
       res.status(201).json(ocuppations);
     })
     .catch((err) => {
+      logger.log(`error`, `${err}`);
       res.send(err).json(err);
     });
 });
@@ -59,6 +63,7 @@ router.put("/edit/:id", async (req, res) => {
         res.status(201).send(ocuppations);
       })
       .catch((err) => {
+        logger.log(`error`, `${err}`);
         res.send(err).json(err);
       });
   }
@@ -74,6 +79,7 @@ router.delete("/delete/:id", async (req, res) => {
         res.sendStatus(200);
       })
       .catch((err) => {
+        logger.log(`error`, `${err}`);
         res.send(err);
       });
   }

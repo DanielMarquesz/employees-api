@@ -1,6 +1,6 @@
 const express = require("express");
 const Employees = require("../models/Employees");
-const logger = require("../logs/logger");
+const logger = require("../utils/logs/logger");
 // const { gamesSchema } = require("../validations/models/gamesSchema"); JOI VALIDATION
 const router = express.Router();
 
@@ -10,6 +10,7 @@ router.get("/list", async (req, res) => {
       res.status(200).json(employees);
     })
     .catch((err) => {
+      logger.log(`error`, `${err}`);
       res.sendStatus(500).send(err);
     });
 });
@@ -24,6 +25,7 @@ router.get("/list/:id", async (req, res) => {
         res.status(200).json(employees);
       })
       .catch((err) => {
+        logger.log(`error`, `${err}`);
         res.send(err).json(err);
       });
   }
