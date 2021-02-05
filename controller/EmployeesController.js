@@ -12,7 +12,7 @@ router.get("/list", async (req, res) => {
     })
     .catch((err) => {
       logger.log(`error`, `${err}`);
-      res.sendStatus(500).send(err);
+      res.status(500).send(err);
     });
 });
 
@@ -27,7 +27,7 @@ router.get("/list/:id", async (req, res) => {
       })
       .catch((err) => {
         logger.log(`error`, `${err}`);
-        res.send(err).json(err);
+        res.send(404).send(err).json(err);
       });
   }
 });
@@ -44,7 +44,7 @@ router.post("/create", async (req, res) => {
       })      
   } catch (error) {
     logger.log(`error`, `${error}`);
-    res.send(error.details[0].message);
+    res.status(400).send(error.details[0].message);
   }
 });
 
@@ -65,7 +65,7 @@ router.put("/edit/:id", async (req, res) => {
         })        
     } catch (error) {
       logger.log(`error`, `${error}`);
-      res.send(error.details[0].message);
+      res.status(400).send(error.details[0].message);
     }
   }
 });
@@ -81,7 +81,7 @@ router.delete("/delete/:id", async (req, res) => {
       })
       .catch((err) => {
         logger.log(`error`, `${err}`);
-        res.send(err);
+        res.status(500).send(err);
       });
   }
 });
