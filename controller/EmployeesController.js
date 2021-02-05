@@ -1,8 +1,9 @@
 const express = require("express");
 const Employees = require("../models/Employees");
 const logger = require("../utils/logs/logger");
-// const { gamesSchema } = require("../validations/models/gamesSchema"); JOI VALIDATION
-const router = express.Router();
+const { employeesSchema, } = require("../utils/validations/models/employeesSchema");
+
+const router = express.Router(); 
 
 router.get("/list", async (req, res) => {
   await Employees.findAll()
@@ -31,24 +32,24 @@ router.get("/list/:id", async (req, res) => {
   }
 });
 
-router.post("/create", async (req, res, next) => {
-  // try {
-  //   await gamesSchema.validateAsync(req.body);
-  // } catch (error) {
-  //   res.send(error);
-  // }
+router.post("/create", async (req, res) => {
+  try {
+    await employeesSchema.validateAsync(req.body);
 
-  let employees = { ...req.body };
+    let employees = { ...req.body };
 
-  await Employees.create(employees)
-    .then((employees) => {
-      logger.log(`error`, `${err}`);
-      res.status(201).json(employees);
-    })
-    .catch((err) => {
-      logger.log(`error`, `${err}`);
-      res.send(err).json(err);
-    });
+    await Employees.create(employees)
+      .then((employees) => {
+        res.status(201).json(employees);
+      })
+      .catch((err) => {
+        logger.log(`error`, `${err}`);
+        res.send(err).json(err);
+      });
+  } catch (error) {
+    logger.log(`error`, `${error}`);
+    res.status(500);
+  }
 });
 
 router.put("/edit/:id", async (req, res) => {
@@ -56,17 +57,24 @@ router.put("/edit/:id", async (req, res) => {
 
   if (isNaN(id)) res.sendStatus(400);
   else {
-    let employees = { ...req.body };
+    try {
+      await employeesSchema.validateAsync(req.body);
 
-    await Employees.update(employees, { where: { id: id } })
-      .then(() => Employees.findAll({ where: { id: id } }))
-      .then((employees) => {
-        res.status(201).send(employees);
-      })
-      .catch((err) => {
-        logger.log(`error`, `${err}`);
-        res.send(err).json(err);
-      });
+      let employees = { ...req.body };
+
+      await Employees.update(employees, { where: { id: id } })
+        .then(() => Employees.findAll({ where: { id: id } }))
+        .then((employees) => {
+          res.status(201).send(employees);
+        })
+        .catch((err) => {
+          logger.log(`error`, `${err}`);
+          res.send(err).json(err);
+        });
+    } catch (error) {
+      logger.log(`error`, `${error}`);
+      res.status(500);
+    }
   }
 });
 

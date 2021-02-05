@@ -1,7 +1,9 @@
 const express = require("express");
 const Ocuppations = require("../models/Ocuppations");
 const logger = require("../utils/logs/logger");
-// const { gamesSchema } = require("../validations/models/gamesSchema"); JOI VALIDATION
+const {
+  ocuppationSchema,
+} = require("../utils/validations/models/ocuppationSchema");
 const router = express.Router();
 
 router.get("/list", async (req, res) => {
@@ -32,22 +34,23 @@ router.get("/list/:id", async (req, res) => {
 });
 
 router.post("/create", async (req, res, next) => {
-  // try {
-  //   await gamesSchema.validateAsync(req.body);
-  // } catch (error) {
-  //   res.send(error);
-  // }
+  try {
+    await ocuppationSchema.validateAsync(req.body);
 
-  let ocuppations = { ...req.body };
+    let ocuppations = { ...req.body };
 
-  await Ocuppations.create(ocuppations)
-    .then((ocuppations) => {
-      res.status(201).json(ocuppations);
-    })
-    .catch((err) => {
-      logger.log(`error`, `${err}`);
-      res.send(err).json(err);
-    });
+    await Ocuppations.create(ocuppations)
+      .then((ocuppations) => {
+        res.status(201).json(ocuppations);
+      })
+      .catch((err) => {
+        logger.log(`error`, `${err}`);
+        res.send(err).json(err);
+      });
+  } catch (error) {
+    logger.log(`error`, `${error}`);
+    res.status(500);
+  }
 });
 
 router.put("/edit/:id", async (req, res) => {
@@ -55,17 +58,23 @@ router.put("/edit/:id", async (req, res) => {
 
   if (isNaN(id)) res.sendStatus(400);
   else {
-    let ocuppations = { ...req.body };
+    try {
+      await ocuppationSchema.validateAsync(req.body);
 
-    await Ocuppations.update(ocuppations, { where: { id: id } })
-      .then(() => Ocuppations.findAll({ where: { id: id } }))
-      .then((ocuppations) => {
-        res.status(201).send(ocuppations);
-      })
-      .catch((err) => {
-        logger.log(`error`, `${err}`);
-        res.send(err).json(err);
-      });
+      let ocuppations = { ...req.body };
+      await Ocuppations.update(ocuppations, { where: { id: id } })
+        .then(() => Ocuppations.findAll({ where: { id: id } }))
+        .then((ocuppations) => {
+          res.status(201).send(ocuppations);
+        })
+        .catch((err) => {
+          logger.log(`error`, `${err}`);
+          res.send(err).json(err);
+        });
+    } catch (error) {
+      logger.log(`error`, `${error}`);
+      res.send(error);
+    }
   }
 });
 
