@@ -13,7 +13,7 @@ router.get("/list", async (req, res) => {
     })
     .catch((err) => {
       logger.log(`error`, `${err}`);
-      res.sendStatus(500).send(err);
+      res.status(500).send(err);
     });
 });
 
@@ -28,12 +28,12 @@ router.get("/list/:id", async (req, res) => {
       })
       .catch((err) => {
         logger.log(`error`, `${err}`);
-        res.send(err).json(err);
+        res.status(404).send(err).json(err);
       });
   }
 });
 
-router.post("/create", async (req, res, next) => {
+router.post("/create", async (req, res) => {
   try {
     await ocuppationSchema.validateAsync(req.body);
 
@@ -42,11 +42,7 @@ router.post("/create", async (req, res, next) => {
     await Ocuppations.create(ocuppations)
       .then((ocuppations) => {
         res.status(201).json(ocuppations);
-      })
-      .catch((err) => {
-        logger.log(`error`, `${err}`);
-        res.send(err).json(err);
-      });
+      })      
   } catch (error) {
     logger.log(`error`, `${error}`);
     res.status(400).send(error.details[0].message);
@@ -66,12 +62,7 @@ router.put("/edit/:id", async (req, res) => {
         .then(() => Ocuppations.findAll({ where: { id: id } }))
         .then((ocuppations) => {
           res.status(201).send(ocuppations);
-        })
-        .catch((err) => {
-          logger.log(`error`, `${err}`);
-          res.send(err).json(err);
-        });
-        
+        })        
     } catch (error) {
       logger.log(`error`, `${error}`);
       res.status(400).send(error.details[0].message).status(400);
@@ -90,7 +81,7 @@ router.delete("/delete/:id", async (req, res) => {
       })
       .catch((err) => {
         logger.log(`error`, `${err}`);
-        res.send(err);
+        res.status(500).send(err);
       });
   }
 });
