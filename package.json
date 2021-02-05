@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "dev": "nodemon index.js"
   },
   "repository": {
@@ -30,6 +30,8 @@
   },
   "devDependencies": {
     "git-commit-msg-linter": "^3.0.0",
-    "nodemon": "^2.0.7"
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
   }
 }
