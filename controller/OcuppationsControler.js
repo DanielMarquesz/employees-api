@@ -49,7 +49,7 @@ router.post("/create", async (req, res, next) => {
       });
   } catch (error) {
     logger.log(`error`, `${error}`);
-    res.status(500);
+    res.status(400).send(error.details[0].message);
   }
 });
 
@@ -71,9 +71,10 @@ router.put("/edit/:id", async (req, res) => {
           logger.log(`error`, `${err}`);
           res.send(err).json(err);
         });
+        
     } catch (error) {
       logger.log(`error`, `${error}`);
-      res.send(error);
+      res.status(400).send(error.details[0].message).status(400);
     }
   }
 });
