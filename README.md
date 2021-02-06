@@ -3,11 +3,11 @@
 ## Índice
 
 * [Objetivo](#objetivo)
-* [Entidades](#empregados)
+* [Entidades](#entidades)
 * [Como Usar](#como-usar)
-* Rotas
-  * [Rotas de Empregados](#rotas-:-empregados)
-  * [Rotas de Ocupações](#rotas-:-ocupacoes)
+* [Rotas](#rotas)
+  * [Empregados](#rotas-empregados)
+  * [Ocupações](#rotas-ocupações)
 
 
 
@@ -17,6 +17,8 @@
 Api desenvolvida com intuito de permitir operações de CRUD(Create - Read - Update - Delete), utilizando duas entidades: Empregados e Ocuppações.
 Visando a agilidade, a tabela de Ocupações permite o cadastro de funções que um funcionário pode exercer em uma empresa, logo a tabela de Empregados tem um relacionamento 1:1 com a tabela Ocupações.
 
+
+## Entidades
 
 ### Empregados 
 
@@ -40,7 +42,7 @@ createdAt | timestamp | Not Null
 updatedAt | timestamp | Not Null
 
 # Como usar
-
+##### [Voltar ao índice](índice)
 Através de uma das ferramentas de testes de Apis: [Postman](https://www.postman.com) ou [Insomnia](https://insomnia.rest), testando as rotas a seguir.
 Tendo em mente que para cadastrar um funcionário é necessário antes cadastrar uma ocupação.
 
@@ -49,10 +51,10 @@ Tendo em mente que para cadastrar um funcionário é necessário antes cadastrar
 
 
 # Rotas
-
+##### [Voltar ao índice](índice)
 <hr>
 
-### Rotas : Empregados
+### Rotas de empregados
 
 #### @Get: http://restemployeesapi-com.umbler.net/employees/list
 
@@ -128,11 +130,11 @@ Status Code | Descrição |
 200  | Requisição feita com sucesso  | 
 400 | Requisição inválida ao servidor  | 
 500 | Erro interno do servidor |
-
+##### [Voltar ao índice](índice)
 <hr>
 
-### Rotas : Ocupações
-
+### Rotas de ocupações
+##### [Voltar ao índice](índice)
 #### @Get: http://restemployeesapi-com.umbler.net/ocuppations/list
 
 
@@ -203,3 +205,4 @@ Status Code | Descrição |
 200  | Requisição feita com sucesso  | 
 400 | Requisição inválida ao servidor  | 
 500 | Erro interno do servidor |
+##### [Voltar ao índice](índice)
