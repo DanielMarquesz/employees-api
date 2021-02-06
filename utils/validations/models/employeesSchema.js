@@ -19,13 +19,8 @@ const employeesSchema  = Joi.object({
         
     OcuppationId: Joi.number()
         .integer()
-        .required(),
+        .required(),    
     
-    createdAt: Joi.string()
-        .required(),
-
-    updatedAt: Joi.string()
-        .required(),
 
 });
 

@@ -18,3 +18,4 @@
 {"level":"info","message":"The server is running in : 3000","timestamp":"2021-02-05T17:46:31.657Z"}
 {"level":"error","message":"SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`companys`.`employees`, CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`OcuppationId`) REFERENCES `ocuppations` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)","timestamp":"2021-02-05T17:50:34.150Z"}
 {"level":"info","message":"The server is running in : 3000","timestamp":"2021-02-05T17:50:45.048Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-02-06T02:10:25.389Z"}

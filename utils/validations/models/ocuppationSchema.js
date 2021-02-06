@@ -7,13 +7,9 @@ const ocuppationSchema  = Joi.object({
         .min(3)
         .max(128)
         .required()
-        .alphanum(),    
+        .alphanum(),  
     
-    createdAt: Joi.string()
-        .required(),
-
-    updatedAt: Joi.string()
-        .required()
+    
 
 });
 
