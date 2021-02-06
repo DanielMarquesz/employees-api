@@ -162,7 +162,7 @@ Status Code | Descrição |
 400 | Solicitação inválida ao servidor | 
 
 
-### @Put: http://restemployeesapi-com.umbler.net/ocuppations/edit/{id}
+### @Patch: http://restemployeesapi-com.umbler.net/ocuppations/edit/{id}
 
 * Edita o registro selecionado.
 
@@ -191,22 +191,3 @@ Status Code | Descrição |
 200  | Requisição feita com sucesso  | 
 400 | Requisição inválida ao servidor  | 
 500 | Erro interno do servidor |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
