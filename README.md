@@ -42,7 +42,7 @@ Tendo em mente que para cadastrar um funcionário é necessário antes cadastrar
 
 ### Rotas : Empregados
 
-### @Get: http://restemployeesapi-com.umbler.net/employees/list
+#### @Get: http://restemployeesapi-com.umbler.net/employees/list
 
 
 * Retorna todos os usuários cadastrados no sistema
@@ -53,7 +53,7 @@ Status Code | Descrição |
 500 | Erro interno no servidor  | 
 
 
-### @Get: http://restemployeesapi-com.umbler.net/employees/list/{id}
+#### @Get: http://restemployeesapi-com.umbler.net/employees/list/{id}
 
 * Passando um id para retornar um usuário específico
 
@@ -63,7 +63,7 @@ Status Code | Descrição |
 500 | Erro interno no servidor  | 
 
 
-### @Post: http://restemployeesapi-com.umbler.net/employees/create
+#### @Post: http://restemployeesapi-com.umbler.net/employees/create
 
 * Cadastra um funcionário no sistema
 
@@ -85,7 +85,7 @@ Status Code | Descrição |
 400 | Solicitação inválida ao servidor  | 
 404 | Entidade não encontrada |
 
-### @Put: http://restemployeesapi-com.umbler.net/employees/edit/{id}
+#### @Put: http://restemployeesapi-com.umbler.net/employees/edit/{id}
 
 * Cadastra um funcionário no sistema
 
@@ -107,7 +107,7 @@ Status Code | Descrição |
 400 | Requisição inválida ao servidor  | 
 404 | Entidade não encontrada |
 
-### @Delete: http://restemployeesapi-com.umbler.net/employees/delete/{id}
+#### @Delete: http://restemployeesapi-com.umbler.net/employees/delete/{id}
 
 * Deleta um funcionário no sistema
 
@@ -121,7 +121,7 @@ Status Code | Descrição |
 
 ### Rotas : Ocupações
 
-### @Get: http://restemployeesapi-com.umbler.net/ocuppations/list
+#### @Get: http://restemployeesapi-com.umbler.net/ocuppations/list
 
 
 * Retorna todos as ocupações cadastradas no sistema
@@ -132,7 +132,7 @@ Status Code | Descrição |
 500 | Erro interno no servidor  | 
 
 
-### @Get: http://restemployeesapi-com.umbler.net/ocuppations/list/{id}
+#### @Get: http://restemployeesapi-com.umbler.net/ocuppations/list/{id}
 
 * Passando um id para retornar um usuário específico
 
@@ -143,7 +143,7 @@ Status Code | Descrição |
 404 | Entidade não encontrada  | 
 
 
-### @Post: http://restemployeesapi-com.umbler.net/ocuppations/create
+#### @Post: http://restemployeesapi-com.umbler.net/ocuppations/create
 
 * Cadastra uma ocupação no sistema
 
@@ -162,7 +162,7 @@ Status Code | Descrição |
 400 | Solicitação inválida ao servidor | 
 
 
-### @Patch: http://restemployeesapi-com.umbler.net/ocuppations/edit/{id}
+#### @Patch: http://restemployeesapi-com.umbler.net/ocuppations/edit/{id}
 
 * Edita o registro selecionado.
 
@@ -182,7 +182,7 @@ Status Code | Descrição |
 400 | Requisição inválida ao servidor  | 
 
 
-### @Delete: http://restemployeesapi-com.umbler.net/ocuppations/delete/{id}
+#### @Delete: http://restemployeesapi-com.umbler.net/ocuppations/delete/{id}
 
 * Deleta um registro selecionado
 
