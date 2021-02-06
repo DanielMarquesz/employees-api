@@ -7,7 +7,7 @@ const employeesSchema  = Joi.object({
         .min(3)
         .max(128)
         .required()
-        .alphanum(),
+        .pattern(/^([a-zA-Zà-úÀ-Ú]|-|_|\s)+$/),
 
 
     age: Joi.number()

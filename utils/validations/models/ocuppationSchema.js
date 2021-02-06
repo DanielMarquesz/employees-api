@@ -7,10 +7,7 @@ const ocuppationSchema  = Joi.object({
         .min(3)
         .max(128)
         .required()
-        .alphanum(),  
-    
-    
-
+        .pattern(/^([a-zA-Zà-úÀ-Ú]|-|_|\s)+$/),
 });
 
 module.exports = {ocuppationSchema};

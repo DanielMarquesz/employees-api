@@ -49,7 +49,7 @@ router.post("/create", async (req, res) => {
   }
 });
 
-router.put("/edit/:id", async (req, res) => {
+router.patch("/edit/:id", async (req, res) => {
   let id = req.params.id;
 
   if (isNaN(id)) res.sendStatus(400);
