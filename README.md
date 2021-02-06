@@ -43,7 +43,8 @@ updatedAt | timestamp | Not Null
 
 # Como usar
 ##### [Voltar ao índice](#índice)
-Através de uma das ferramentas de testes de Apis: [Postman](https://www.postman.com) ou [Insomnia](https://insomnia.rest), testando as rotas a seguir.
+Através de uma das ferramentas de testes de Apis: [Postman](https://www.postman.com) ou [Insomnia](https://insomnia.rest).
+Você pode baixar o [arquivo](https://github.com/DanielMarquesz/employees-api/blob/master/Companys%20-%20Stone%20-%20Ton.postman_collection.json) e importar em algun desses programas para ter as rotas configuradas.
 Tendo em mente que para cadastrar um funcionário é necessário antes cadastrar uma ocupação.
 
 - http://restemployeesapi-com.umbler.net/employees/{rotadefinida} - Para as Rotas de Empregados
