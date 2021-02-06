@@ -64,7 +64,7 @@ Tendo em mente que para cadastrar um funcionário é necessário antes cadastrar
 
 Status Code | Descrição | 
  :------------- |  :-------------: |
-200  | Request Retornada com sucesso  | 
+200  | Request retornada com sucesso  | 
 500 | Erro interno no servidor  | 
 
 
@@ -74,7 +74,7 @@ Status Code | Descrição |
 
 Status Code | Descrição | 
  :------------- |  :-------------: |
-200  | Request Retornada com sucesso  | 
+200  | Requisição retornada com sucesso  | 
 500 | Erro interno no servidor  | 
 
 
@@ -97,7 +97,7 @@ Status Code | Descrição |
 Status Code | Descrição | 
  :------------- |  :-------------: |
 201  | Entidade criada com sucesso  | 
-400 | Solicitação inválida ao servidor  | 
+400 | Requisição inválida ao servidor  | 
 404 | Entidade não encontrada |
 
 #### @Put: http://restemployeesapi-com.umbler.net/employees/edit/{id}
@@ -128,9 +128,9 @@ Status Code | Descrição |
 
 Status Code | Descrição | 
  :------------- |  :-------------: |
-200  | Requisição feita com sucesso  | 
+200  | Requisição retornada com sucesso  | 
 400 | Requisição inválida ao servidor  | 
-500 | Erro interno do servidor |
+500 | Erro interno no servidor |
 ##### [Voltar ao índice](#índice)
 <hr>
 
@@ -143,7 +143,7 @@ Status Code | Descrição |
 
 Status Code | Descrição | 
  :------------- |  :-------------: |
-200  | Request Retornada com sucesso  | 
+200  | Requisição retornada com sucesso  | 
 500 | Erro interno no servidor  | 
 
 
@@ -153,7 +153,7 @@ Status Code | Descrição |
 
 Status Code | Descrição | 
  :------------- |  :-------------: |
-200  | Request Retornada com sucesso  | 
+200  | Request retornada com sucesso  | 
 400 | Requisição inválida ao servidor  |
 404 | Entidade não encontrada  | 
 
@@ -174,7 +174,7 @@ Status Code | Descrição |
 Status Code | Descrição | 
  :------------- |  :-------------: |
 201  | Entidade criada com sucesso  | 
-400 | Solicitação inválida ao servidor | 
+400 | Requisição inválida ao servidor | 
 
 
 #### @Patch: http://restemployeesapi-com.umbler.net/ocuppations/edit/{id}
