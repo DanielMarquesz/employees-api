@@ -1,6 +1,18 @@
 # API Rest: Empregados - Desafio #02
 
-## Função
+## Índice
+
+* [Objetivo](#objetivo)
+* [Entidades](#empregados)
+* [Como Usar](#como-usar)
+* Rotas
+  * [Rotas de Empregados](#rotas-:-empregados)
+  * [Rotas de Ocupações](#rotas-:-ocupacoes)
+
+
+
+
+## Objetivo
 
 Api desenvolvida com intuito de permitir operações de CRUD(Create - Read - Update - Delete), utilizando duas entidades: Empregados e Ocuppações.
 Visando a agilidade, a tabela de Ocupações permite o cadastro de funções que um funcionário pode exercer em uma empresa, logo a tabela de Empregados tem um relacionamento 1:1 com a tabela Ocupações.
