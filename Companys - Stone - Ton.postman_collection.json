@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "0004194f-e655-4fc2-b616-fe63fe4d204f",
+		"name": "Companys - Stone - Ton",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://restemployeesapi-com.umbler.net/employees/list",
+							"protocol": "http",
+							"host": [
+								"restemployeesapi-com",
+								"umbler",
+								"net"
+							],
+							"path": [
+								"employees",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://restemployeesapi-com.umbler.net/employees/list/32",
+							"protocol": "http",
+							"host": [
+								"restemployeesapi-com",
+								"umbler",
+								"net"
+							],
+							"path": [
+								"employees",
+								"list",
+								"32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"George\",\r\n    \"age\":53,    \r\n    \"OcuppationId\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://restemployeesapi-com.umbler.net/employees/create",
+							"protocol": "http",
+							"host": [
+								"restemployeesapi-com",
+								"umbler",
+								"net"
+							],
+							"path": [
+								"employees",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Camila\",\r\n        \"age\": 23,        \r\n        \"OcuppationId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://restemployeesapi-com.umbler.net/employees/edit/28",
+							"protocol": "http",
+							"host": [
+								"restemployeesapi-com",
+								"umbler",
+								"net"
+							],
+							"path": [
+								"employees",
+								"edit",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://restemployeesapi-com.umbler.net/employees/delete/30",
+							"protocol": "http",
+							"host": [
+								"restemployeesapi-com",
+								"umbler",
+								"net"
+							],
+							"path": [
+								"employees",
+								"delete",
+								"30"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ocuppations",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/list",
+							"protocol": "http",
+							"host": [
+								"restemployeesapi-com",
+								"umbler",
+								"net"
+							],
+							"path": [
+								"ocuppations",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/list/4",
+							"protocol": "http",
+							"host": [
+								"restemployeesapi-com",
+								"umbler",
+								"net"
+							],
+							"path": [
+								"ocuppations",
+								"list",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Gerente De Produção\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/create",
+							"protocol": "http",
+							"host": [
+								"restemployeesapi-com",
+								"umbler",
+								"net"
+							],
+							"path": [
+								"ocuppations",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Estagiário de Tecnologia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/edit/4",
+							"protocol": "http",
+							"host": [
+								"restemployeesapi-com",
+								"umbler",
+								"net"
+							],
+							"path": [
+								"ocuppations",
+								"edit",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/delete/16",
+							"protocol": "http",
+							"host": [
+								"restemployeesapi-com",
+								"umbler",
+								"net"
+							],
+							"path": [
+								"ocuppations",
+								"delete",
+								"16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
