@@ -201,7 +201,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Gerente De Produção\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Gerente De RH\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -258,10 +258,10 @@
 				{
 					"name": "Delete",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/delete/16",
+							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/delete/21",
 							"protocol": "http",
 							"host": [
 								"restemployeesapi-com",
@@ -271,7 +271,7 @@
 							"path": [
 								"ocuppations",
 								"delete",
-								"16"
+								"21"
 							]
 						}
 					},
