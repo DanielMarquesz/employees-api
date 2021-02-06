@@ -74,9 +74,7 @@ Status Code | Descrição |
 {
     "name":"Kamila",
     "age":23,    
-    "OcuppationId":4,
-    "createdAt":"2019-09-28T10:55:51.603",
-    "updatedAt":"2020-09-28T10:55:51.604"
+    "OcuppationId":4
 }
 ```
 
@@ -98,9 +96,7 @@ Status Code | Descrição |
 {
     "name":"Carol",
     "age":23,    
-    "OcuppationId":4,
-    "createdAt":"2019-09-28T10:55:51.603",
-    "updatedAt":"2020-09-28T10:55:51.604"
+    "OcuppationId":4
 }
 ```
 
@@ -156,9 +152,7 @@ Status Code | Descrição |
 
 ```
 {
-    "name":"Estagiário",
-    "createdAt":"2019-09-28T10:55:51.603",
-    "updatedAt":"2020-09-28T10:55:51.603"
+    "name":"Estagiário"
 }
 ```
 
@@ -177,9 +171,7 @@ Status Code | Descrição |
 
 ```
 {
-    "name":"Estagiário de Tecnologia",
-    "createdAt":"2019-09-28T10:55:51.603",
-    "updatedAt":"2020-09-28T10:55:51.603"
+    "name":"Estagiário de Tecnologia"
 }
 ```
 
