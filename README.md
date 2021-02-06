@@ -6,8 +6,8 @@
 * [Entidades](#entidades)
 * [Como Usar](#como-usar)
 * [Rotas](#rotas)
-  * [Empregados](#rotas-empregados)
-  * [Ocupações](#rotas-ocupações)
+  * [Empregados](#rotas-de-empregados)
+  * [Ocupações](#rotas-de-ocupações)
 
 
 
