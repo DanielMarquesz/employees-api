@@ -14,8 +14,8 @@
 
 ## Objetivo
 
-Api desenvolvida com intuito de permitir operações de CRUD (Create - Read - Update - Delete), utilizando duas entidades: Empregados e Ocuppações.
-Visando a agilidade, a tabela de Ocupações permite o cadastro de funções que um funcionário pode exercer em uma empresa, logo a tabela de Empregados tem um relacionamento 1:1 com a tabela Ocupações.
+Api desenvolvida com intuito de permitir operações de CRUD (Create - Read - Update - Delete), utilizando duas entidades: Empregados e Ocupações.
+Visando a agilidade, a tabela de ocupações permite o cadastro de funções que um funcionário pode exercer em uma empresa, logo a tabela de empregados tem um relacionamento 1:1 com a tabela ocupações.
 
 
 ## Entidades
