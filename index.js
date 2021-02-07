@@ -3,7 +3,7 @@ require("dotenv").config();
 const app = express();
 const bodyParser = require("body-parser");
 const EmployeesController = require("./controller/EmployeesController");
-const OcuppationsController = require("./controller/OcuppationsControler");
+const OccupationsController = require("./controller/OccupationsController");
 const logger = require("./utils/logs/logger");
 
 app.use(bodyParser.json());
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/employees", EmployeesController);
-app.use("/ocuppations", OcuppationsController);
+app.use("/occupations", OccupationsController);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

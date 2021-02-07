@@ -1,9 +1,9 @@
 const { DataTypes, Model } = require("sequelize");
 const connection = require("../database/connection");
 
-class Ocuppations extends Model {}
+class Occupations extends Model {}
 
-Ocuppations.init(
+Occupations.init(
   {
     name: {
       type: DataTypes.STRING(128),
@@ -13,9 +13,9 @@ Ocuppations.init(
   },
   {
     sequelize: connection,
-    modelName: "Ocuppations",
+    modelName: "Occupations",
   }
 );
 
 //Ocuppations.sync({ force: true }); // To create the table set 'True', but after created once set 'False'
-module.exports = Ocuppations;
+module.exports = Occupations;

@@ -1,6 +1,6 @@
 const { DataTypes, Model } = require("sequelize");
 const connection = require("../database/connection");
-const Ocuppation = require("./Ocuppations");
+const Occupations = require("./Occupations");
 
 class Employees extends Model {}
 
@@ -21,7 +21,7 @@ Employees.init(
     modelName: "Employees",
   }
 );
-Employees.belongsTo(Ocuppation);
+Employees.belongsTo(Occupations);
 //Employees.sync({ force: true }); // To create the table set 'True', but after created once set 'False'
 
 module.exports = Employees;

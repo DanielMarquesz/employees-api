@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 
-const ocuppationSchema  = Joi.object({
+const occupationSchema  = Joi.object({
 
     name: Joi.string()        
         .min(3)
@@ -10,4 +10,4 @@ const ocuppationSchema  = Joi.object({
         .pattern(/^([a-zA-Zà-úÀ-Ú]|-|_|\s)+$/),
 });
 
-module.exports = {ocuppationSchema};
+module.exports = {occupationSchema};

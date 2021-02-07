@@ -1,15 +1,15 @@
 const express = require("express");
-const Ocuppations = require("../models/Ocuppations");
+const Occupations = require("../models/Occupations");
 const logger = require("../utils/logs/logger");
 const {
-  ocuppationSchema,
-} = require("../utils/validations/models/ocuppationSchema");
+  occupationSchema,
+} = require("../utils/validations/models/occupationSchema");
 const router = express.Router();
 
 router.get("/list", async (req, res) => {
-  await Ocuppations.findAll()
-    .then((ocuppations) => {
-      res.status(200).json(ocuppations);
+  await Occupations.findAll()
+    .then((occupations) => {
+      res.status(200).json(occupations);
     })
     .catch((err) => {
       logger.log(`error`, `${err}`);
@@ -22,9 +22,9 @@ router.get("/list/:id", async (req, res) => {
 
   if (isNaN(id)) res.sendStatus(400);
   else {
-    await Ocuppations.findByPk(id)
-      .then((ocuppations) => {
-        res.status(200).json(ocuppations);
+    await Occupations.findByPk(id)
+      .then((occupations) => {
+        res.status(200).json(occupations);
       })
       .catch((err) => {
         logger.log(`error`, `${err}`);
@@ -35,13 +35,13 @@ router.get("/list/:id", async (req, res) => {
 
 router.post("/create", async (req, res) => {
   try {
-    await ocuppationSchema.validateAsync(req.body);
+    await occupationSchema.validateAsync(req.body);
 
-    let ocuppations = { ...req.body };
+    let occupations = { ...req.body };
 
-    await Ocuppations.create(ocuppations)
-      .then((ocuppations) => {
-        res.status(201).json(ocuppations);
+    await Occupations.create(occupations)
+      .then((occupations) => {
+        res.status(201).json(occupations);
       })      
   } catch (error) {
     logger.log(`error`, `${error}`);
@@ -55,13 +55,13 @@ router.patch("/edit/:id", async (req, res) => {
   if (isNaN(id)) res.sendStatus(400);
   else {
     try {
-      await ocuppationSchema.validateAsync(req.body);
+      await occupationSchema.validateAsync(req.body);
 
-      let ocuppations = { ...req.body };
-      await Ocuppations.update(ocuppations, { where: { id: id } })
-        .then(() => Ocuppations.findAll({ where: { id: id } }))
-        .then((ocuppations) => {
-          res.status(201).send(ocuppations);
+      let occupations = { ...req.body };
+      await Occupations.update(occupations, { where: { id: id } })
+        .then(() => Occupations.findAll({ where: { id: id } }))
+        .then((occupations) => {
+          res.status(201).send(occupations);
         })        
     } catch (error) {
       logger.log(`error`, `${error}`);
@@ -75,7 +75,7 @@ router.delete("/delete/:id", async (req, res) => {
 
   if (isNaN(id)) res.sendStatus(400);
   else {
-    await Ocuppations.destroy({ where: { id: req.params.id } })
+    await Occupations.destroy({ where: { id: req.params.id } })
       .then(() => {
         res.sendStatus(200);
       })
