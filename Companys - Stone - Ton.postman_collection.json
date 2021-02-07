@@ -149,7 +149,7 @@
 			]
 		},
 		{
-			"name": "Ocuppations",
+			"name": "Occupations",
 			"item": [
 				{
 					"name": "Get",
@@ -157,7 +157,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/list",
+							"raw": "http://restemployeesapi-com.umbler.net/occupations/list",
 							"protocol": "http",
 							"host": [
 								"restemployeesapi-com",
@@ -165,7 +165,7 @@
 								"net"
 							],
 							"path": [
-								"ocuppations",
+								"occupations",
 								"list"
 							]
 						}
@@ -178,7 +178,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/list/4",
+							"raw": "http://restemployeesapi-com.umbler.net/occupations/list/4",
 							"protocol": "http",
 							"host": [
 								"restemployeesapi-com",
@@ -186,7 +186,7 @@
 								"net"
 							],
 							"path": [
-								"ocuppations",
+								"occupations",
 								"list",
 								"4"
 							]
@@ -209,7 +209,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/create",
+							"raw": "http://restemployeesapi-com.umbler.net/occupations/create",
 							"protocol": "http",
 							"host": [
 								"restemployeesapi-com",
@@ -217,7 +217,7 @@
 								"net"
 							],
 							"path": [
-								"ocuppations",
+								"occupations",
 								"create"
 							]
 						}
@@ -239,7 +239,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/edit/4",
+							"raw": "http://restemployeesapi-com.umbler.net/occupations/edit/4",
 							"protocol": "http",
 							"host": [
 								"restemployeesapi-com",
@@ -247,7 +247,7 @@
 								"net"
 							],
 							"path": [
-								"ocuppations",
+								"occupations",
 								"edit",
 								"4"
 							]
@@ -261,7 +261,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://restemployeesapi-com.umbler.net/ocuppations/delete/21",
+							"raw": "http://restemployeesapi-com.umbler.net/occupations/delete/21",
 							"protocol": "http",
 							"host": [
 								"restemployeesapi-com",
@@ -269,7 +269,7 @@
 								"net"
 							],
 							"path": [
-								"ocuppations",
+								"occupations",
 								"delete",
 								"21"
 							]
