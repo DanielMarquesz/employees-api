@@ -14,7 +14,7 @@
 
 ## Objetivo
 
-Api desenvolvida com intuito de permitir operações de CRUD(Create - Read - Update - Delete), utilizando duas entidades: Empregados e Ocuppações.
+Api desenvolvida com intuito de permitir operações de CRUD (Create - Read - Update - Delete), utilizando duas entidades: Empregados e Ocuppações.
 Visando a agilidade, a tabela de Ocupações permite o cadastro de funções que um funcionário pode exercer em uma empresa, logo a tabela de Empregados tem um relacionamento 1:1 com a tabela Ocupações.
 
 
@@ -26,7 +26,7 @@ Campo  | Valor | Tipo
  :------------- |  :-------------: | :-------------:
 Id  | Integer  | Pk, Not Null
 name | Varchar(128)  | Not Null
-OcuppationId| Integer | Fk, Not Null
+OccupationId| Integer | Fk, Not Null
 createdAt | timestamp | Not Null
 updatedAt | timestamp | Not Null
 
@@ -48,7 +48,7 @@ Você pode baixar o [arquivo](https://github.com/DanielMarquesz/employees-api/bl
 Tendo em mente que para cadastrar um funcionário é necessário antes cadastrar uma ocupação.
 
 - http://restemployeesapi-com.umbler.net/employees/{rotadefinida} - Para as Rotas de Empregados
-- http://restemployeesapi-com.umbler.net/ocuppations/{rotadefinida} - Para as Rotas de Ocupações 
+- http://restemployeesapi-com.umbler.net/occupations/{rotadefinida} - Para as Rotas de Ocupações 
 
 
 # Rotas
@@ -136,7 +136,8 @@ Status Code | Descrição |
 
 ### Rotas de ocupações
 ##### [Voltar ao índice](#índice)
-#### @Get: http://restemployeesapi-com.umbler.net/ocuppations/list
+
+#### @Get: http://restemployeesapi-com.umbler.net/occupations/list
 
 
 * Retorna todos as ocupações cadastradas no sistema
@@ -147,7 +148,7 @@ Status Code | Descrição |
 500 | Erro interno no servidor  | 
 
 
-#### @Get: http://restemployeesapi-com.umbler.net/ocuppations/list/{id}
+#### @Get: http://restemployeesapi-com.umbler.net/occupations/list/{id}
 
 * Passando um id para retornar um usuário específico
 
@@ -158,7 +159,7 @@ Status Code | Descrição |
 404 | Entidade não encontrada  | 
 
 
-#### @Post: http://restemployeesapi-com.umbler.net/ocuppations/create
+#### @Post: http://restemployeesapi-com.umbler.net/occupations/create
 
 * Cadastra uma ocupação no sistema
 
@@ -177,7 +178,7 @@ Status Code | Descrição |
 400 | Requisição inválida ao servidor | 
 
 
-#### @Patch: http://restemployeesapi-com.umbler.net/ocuppations/edit/{id}
+#### @Patch: http://restemployeesapi-com.umbler.net/occupations/edit/{id}
 
 * Edita o registro selecionado.
 
@@ -197,7 +198,7 @@ Status Code | Descrição |
 400 | Requisição inválida ao servidor  | 
 
 
-#### @Delete: http://restemployeesapi-com.umbler.net/ocuppations/delete/{id}
+#### @Delete: http://restemployeesapi-com.umbler.net/occupations/delete/{id}
 
 * Deleta um registro selecionado
 
@@ -206,4 +207,5 @@ Status Code | Descrição |
 200  | Requisição feita com sucesso  | 
 400 | Requisição inválida ao servidor  | 
 500 | Erro interno do servidor |
+
 ##### [Voltar ao índice](#índice)
