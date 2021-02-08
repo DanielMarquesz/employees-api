@@ -44,7 +44,7 @@ updatedAt | timestamp | Not Null
 # Como usar
 ##### [Voltar ao índice](#índice)
 Através de uma das ferramentas de testes de Apis: [Postman](https://www.postman.com) ou [Insomnia](https://insomnia.rest).
-Você pode baixar o [arquivo](https://drive.google.com/file/d/1Y2FrfBKCXLKY7mXKBXMGYq5QtG5NN9kk/view) e importar em algun desses programas para ter as rotas configuradas.
+Você pode baixar o [arquivo](https://drive.google.com/file/d/1lW4pUW0LmomPf7nrtcxDqsYoAhxbM1uz/view?usp=sharing) e importar em algun desses programas para ter as rotas configuradas.
 Tendo em mente que para cadastrar um funcionário é necessário antes cadastrar uma ocupação.
 
 - http://restemployeesapi-com.umbler.net/employees/{rotadefinida} - Para as Rotas de Empregados
