@@ -1,27 +1,15 @@
-const Joi = require('joi');
+const Joi = require("joi");
 
+const employeesSchema = Joi.object({
+  name: Joi.string()
+    .min(3)
+    .max(128)
+    .required()
+    .pattern(/^([a-zA-Zà-úÀ-Ú]|-|_|\s)+$/),
 
-const employeesSchema  = Joi.object({
+  age: Joi.number().integer().min(14).max(65).positive().required(),
 
-    name: Joi.string()        
-        .min(3)
-        .max(128)
-        .required()
-        .pattern(/^([a-zA-Zà-úÀ-Ú]|-|_|\s)+$/),
-
-
-    age: Joi.number()
-        .integer()
-        .min(14)
-        .max(65)
-        .positive()        
-        .required(),  
-        
-    OcuppationId: Joi.number()
-        .integer()
-        .required(),    
-    
-
+  OccupationId: Joi.number().integer().required(),
 });
 
-module.exports = {employeesSchema};
+module.exports = { employeesSchema };
