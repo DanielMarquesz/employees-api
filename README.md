@@ -75,7 +75,9 @@ Status Code | Descrição |
 Status Code | Descrição | 
  :------------- |  :-------------: |
 200  | Requisição retornada com sucesso  | 
-500 | Erro interno no servidor  | 
+400 | Requisição inválida ao servidor  |
+404 | Id não encontrado | 
+
 
 
 #### @Post: http://restemployeesapi-com.umbler.net/employees/create
@@ -156,7 +158,7 @@ Status Code | Descrição |
  :------------- |  :-------------: |
 200  | Request retornada com sucesso  | 
 400 | Requisição inválida ao servidor  |
-404 | Entidade não encontrada  | 
+404 | Id não encontrado | 
 
 
 #### @Post: http://restemployeesapi-com.umbler.net/occupations/create
