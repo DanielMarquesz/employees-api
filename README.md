@@ -77,6 +77,7 @@ Status Code | Descrição |
 200  | Requisição retornada com sucesso  | 
 400 | Requisição inválida ao servidor  |
 404 | Id não encontrado | 
+500 | Erro interno no servidor  | 
 
 
 
