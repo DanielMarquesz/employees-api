@@ -132,6 +132,7 @@ Status Code | Descrição |
  :------------- |  :-------------: |
 200  | Requisição retornada com sucesso  | 
 400 | Requisição inválida ao servidor  | 
+404 | Id não encontrado | 
 500 | Erro interno no servidor |
 ##### [Voltar ao índice](#índice)
 <hr>
@@ -208,6 +209,7 @@ Status Code | Descrição |
  :------------- |  :-------------: |
 200  | Requisição feita com sucesso  | 
 400 | Requisição inválida ao servidor  | 
+404 | Id não encontrado | 
 500 | Erro interno do servidor |
 
 ##### [Voltar ao índice](#índice)
