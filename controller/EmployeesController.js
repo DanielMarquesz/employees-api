@@ -1,11 +1,10 @@
 const express = require("express");
+const router = express.Router();
 const Employees = require("../models/Employees");
 const logger = require("../utils/logs/logger");
 const {
   employeesSchema,
 } = require("../utils/validations/models/employeesSchema");
-
-const router = express.Router();
 
 router.get("/list", async (req, res) => {
   await Employees.findAll()
@@ -13,7 +12,7 @@ router.get("/list", async (req, res) => {
       res.status(200).json(employees);
     })
     .catch((err) => {
-      logger.log(`error`, `${err}`);
+      logger.log(`error`, err);
       res.status(500).send(err);
     });
 });
@@ -21,38 +20,32 @@ router.get("/list", async (req, res) => {
 router.get("/list/:id", async (req, res) => {
   let id = req.params.id;
 
-  if (isNaN(id)) res.sendStatus(400);
-  else {
-    await Employees.findByPk(id)
-      .then((employees) => {
+  try {
+    if (isNaN(id)) res.sendStatus(400);
+    else {
+      await Employees.findByPk(id).then((employees) => {
         if (employees === null) {
           logger.log(`error`, `Not Found`);
           res.sendStatus(404);
         } else {
           res.status(200).json(employees);
         }
-      })
-      .catch((err) => {
-        logger.log(`error`, `${err}`);
-        res.send(404).send(err).json(err);
       });
+    }
+  } catch (error) {
+    logger.log(`error`, error);
+    res.status(500).send(error);
   }
 });
 
 router.post("/create", async (req, res) => {
   try {
     await employeesSchema.validateAsync(req.body);
-
     let employees = { ...req.body };
 
-    await Employees.create(employees)
-      .then((employees) => {
-        res.status(201).json(employees);
-      })
-      .catch((err) => {
-        logger.log(`error`, `${err}`);
-        res.status(404).send(err.parent.sqlMessage);
-      });
+    await Employees.create(employees).then((employees) => {
+      res.status(201).json(employees);
+    });
   } catch (error) {
     logger.log(`error`, `${error}`);
     res.status(400).send(error.details[0].message);
@@ -68,16 +61,16 @@ router.put("/edit/:id", async (req, res) => {
       await employeesSchema.validateAsync(req.body);
 
       let employees = { ...req.body };
-
-      await Employees.update(employees, { where: { id: id } })
-        .then(() => Employees.findByPk(id))
-        .then((employees) => {
-          res.status(201).send(employees);
-        })
-        .catch((err) => {
-          logger.log(`error`, `${err}`);
-          res.status(404).send(err.parent.sqlMessage);
-        });
+      await Employees.update(employees, { where: { id: id } }).then(
+        (employees) => {
+          if (employees[0] === 0) {
+            logger.log(`error`, `Not Found`);
+            res.sendStatus(404);
+          } else {
+            res.sendStatus(201);
+          }
+        }
+      );
     } catch (error) {
       logger.log(`error`, `${error}`);
       res.status(400).send(error.details[0].message);
