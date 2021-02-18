@@ -8,8 +8,6 @@ const logger = require("./utils/logs/logger");
 
 app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use("/employees", EmployeesController);
 app.use("/occupations", OccupationsController);
 
@@ -18,5 +16,3 @@ app.listen(port, () => {
   logger.log(`info`, `The server is running in : ${port}`);
   console.log(`The server is running in : localhost:${port}`);
 });
-
-module.exports = app;
