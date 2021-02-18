@@ -161,6 +161,7 @@ Status Code | Descrição |
 200  | Request retornada com sucesso  | 
 400 | Requisição inválida ao servidor  |
 404 | Id não encontrado | 
+500 | Erro interno no servidor  | 
 
 
 #### @Post: http://restemployeesapi-com.umbler.net/occupations/create
