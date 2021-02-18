@@ -201,6 +201,7 @@ Status Code | Descrição |
  :------------- |  :-------------: |
 201  | Entidade criada com sucesso  | 
 400 | Requisição inválida ao servidor  | 
+404 | Id não encontrado | 
 
 
 #### @Delete: http://restemployeesapi-com.umbler.net/occupations/delete/{id}
