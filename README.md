@@ -92,7 +92,7 @@ Status Code | Descrição |
 {
     "name":"Kamila",
     "age":23,    
-    "OcuppationId":4
+    "OccupationId":4
 }
 ```
 
@@ -114,7 +114,7 @@ Status Code | Descrição |
 {
     "name":"Carol",
     "age":23,    
-    "OcuppationId":4
+    "OccupationId":4
 }
 ```
 
