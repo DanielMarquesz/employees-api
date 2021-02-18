@@ -24,7 +24,12 @@ router.get("/list/:id", async (req, res) => {
   else {
     await Occupations.findByPk(id)
       .then((occupations) => {
-        res.status(200).json(occupations);
+        if (occupations === null) {
+          logger.log(`error`, `Not Found`);
+          res.sendStatus(404);
+        } else {
+          res.status(200).json(occupations);
+        }
       })
       .catch((err) => {
         logger.log(`error`, `${err}`);
@@ -39,10 +44,9 @@ router.post("/create", async (req, res) => {
 
     let occupations = { ...req.body };
 
-    await Occupations.create(occupations)
-      .then((occupations) => {
-        res.status(201).json(occupations);
-      })      
+    await Occupations.create(occupations).then((occupations) => {
+      res.status(201).json(occupations);
+    });
   } catch (error) {
     logger.log(`error`, `${error}`);
     res.status(400).send(error.details[0].message);
@@ -62,7 +66,7 @@ router.patch("/edit/:id", async (req, res) => {
         .then(() => Occupations.findAll({ where: { id: id } }))
         .then((occupations) => {
           res.status(201).send(occupations);
-        })        
+        });
     } catch (error) {
       logger.log(`error`, `${error}`);
       res.status(400).send(error.details[0].message).status(400);
@@ -76,8 +80,13 @@ router.delete("/delete/:id", async (req, res) => {
   if (isNaN(id)) res.sendStatus(400);
   else {
     await Occupations.destroy({ where: { id: req.params.id } })
-      .then(() => {
-        res.sendStatus(200);
+      .then((occupations) => {
+        if (occupations === 0) {
+          logger.log(`error`, `Not Found`);
+          res.sendStatus(404);
+        } else {
+          res.sendStatus(200);
+        }
       })
       .catch((err) => {
         logger.log(`error`, `${err}`);

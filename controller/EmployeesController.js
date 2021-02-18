@@ -25,7 +25,12 @@ router.get("/list/:id", async (req, res) => {
   else {
     await Employees.findByPk(id)
       .then((employees) => {
-        res.status(200).json(employees);
+        if (employees === null) {
+          logger.log(`error`, `Not Found`);
+          res.sendStatus(404);
+        } else {
+          res.status(200).json(employees);
+        }
       })
       .catch((err) => {
         logger.log(`error`, `${err}`);
@@ -85,9 +90,14 @@ router.delete("/delete/:id", async (req, res) => {
 
   if (isNaN(id)) res.sendStatus(400);
   else {
-    await Employees.destroy({ where: { id: req.params.id } })
-      .then(() => {
-        res.sendStatus(200);
+    await Employees.destroy({ where: { id: id } })
+      .then((employees) => {
+        if (employees === 0) {
+          logger.log(`error`, `Not Found`);
+          res.sendStatus(404);
+        } else {
+          res.sendStatus(200);
+        }
       })
       .catch((err) => {
         logger.log(`error`, `${err}`);

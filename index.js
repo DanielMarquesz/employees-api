@@ -9,7 +9,6 @@ const logger = require("./utils/logs/logger");
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 app.use("/employees", EmployeesController);
 app.use("/occupations", OccupationsController);
