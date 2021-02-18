@@ -99,8 +99,8 @@ Status Code | Descrição |
 Status Code | Descrição | 
  :------------- |  :-------------: |
 201  | Entidade criada com sucesso  | 
-400 | Requisição inválida ao servidor  | 
-404 | Entidade não encontrada |
+400 | Requisição inválida ao servidor  |
+
 
 #### @Put: http://restemployeesapi-com.umbler.net/employees/edit/{id}
 
