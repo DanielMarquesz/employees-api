@@ -5,8 +5,9 @@ const logger = require("../utils/logs/logger");
 const {
   employeesSchema,
 } = require("../utils/validations/models/employeesSchema");
+const { verifyToken } = require("../utils/authentication/auth");
 
-router.get("/list", async (req, res) => {
+router.get("/", async (req, res) => {
   await Employees.findAll()
     .then((employees) => {
       res.status(200).json(employees);
@@ -17,7 +18,7 @@ router.get("/list", async (req, res) => {
     });
 });
 
-router.get("/list/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   let id = req.params.id;
 
   try {
@@ -38,7 +39,7 @@ router.get("/list/:id", async (req, res) => {
   }
 });
 
-router.post("/create", async (req, res) => {
+router.post("/create", verifyToken, async (req, res) => {
   try {
     await employeesSchema.validateAsync(req.body);
     let employees = { ...req.body };
@@ -52,7 +53,7 @@ router.post("/create", async (req, res) => {
   }
 });
 
-router.put("/edit/:id", async (req, res) => {
+router.put("/edit/:id", verifyToken, async (req, res) => {
   let id = req.params.id;
 
   if (isNaN(id)) res.sendStatus(400);
@@ -78,7 +79,7 @@ router.put("/edit/:id", async (req, res) => {
   }
 });
 
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/:id", verifyToken, async (req, res) => {
   let id = req.params.id;
 
   if (isNaN(id)) res.sendStatus(400);

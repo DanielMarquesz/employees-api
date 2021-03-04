@@ -1,12 +1,14 @@
 const express = require("express");
+const jwt = require("jsonwebtoken");
 const router = express.Router();
 const Occupations = require("../models/Occupations");
 const logger = require("../utils/logs/logger");
 const {
   occupationSchema,
 } = require("../utils/validations/models/occupationSchema");
+const { verifyToken } = require("../utils/authentication/auth");
 
-router.get("/list", async (req, res) => {
+router.get("/", async (req, res) => {
   await Occupations.findAll()
     .then((occupations) => {
       res.status(200).json(occupations);
@@ -17,7 +19,7 @@ router.get("/list", async (req, res) => {
     });
 });
 
-router.get("/list/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   let id = req.params.id;
 
   try {
@@ -38,7 +40,7 @@ router.get("/list/:id", async (req, res) => {
   }
 });
 
-router.post("/create", async (req, res) => {
+router.post("/create", verifyToken, async (req, res) => {
   try {
     await occupationSchema.validateAsync(req.body);
     let occupations = { ...req.body };
@@ -52,7 +54,7 @@ router.post("/create", async (req, res) => {
   }
 });
 
-router.patch("/edit/:id", async (req, res) => {
+router.patch("/:id", verifyToken, async (req, res) => {
   let id = req.params.id;
 
   if (isNaN(id)) res.sendStatus(400);
@@ -78,7 +80,7 @@ router.patch("/edit/:id", async (req, res) => {
   }
 });
 
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/:id", verifyToken, async (req, res) => {
   let id = req.params.id;
 
   if (isNaN(id)) res.sendStatus(400);
