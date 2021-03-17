@@ -4,7 +4,7 @@ const router = express.Router();
 const Users = require("../models/Users");
 const { verifyToken, JWTSecret } = require("../utils/authentication/auth");
 
-router.get("/", verifyToken, async (req, res) => {
+router.get("/", async (req, res) => {
   await Users.findAll()
     .then((users) => {
       res.send(users);

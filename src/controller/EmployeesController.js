@@ -85,7 +85,8 @@ router.delete("/:id", verifyToken, async (req, res) => {
 
   if (isNaN(id)) res.sendStatus(400);
   else {
-    await Employees.destroy({ where: { id: id } })
+    try {
+      await Employees.destroy({ where: { id: id } })
       .then((employees) => {
         if (employees === 0) {
           logger.log(`error`, `Not Found`);
@@ -94,10 +95,10 @@ router.delete("/:id", verifyToken, async (req, res) => {
           res.sendStatus(200);
         }
       })
-      .catch((err) => {
-        logger.log(`error`, `${err}`);
+    }catch(err) {
+      logger.log(`error`, `${err}`);
         res.status(500).send(err);
-      });
+    }     
   }
 });
 
