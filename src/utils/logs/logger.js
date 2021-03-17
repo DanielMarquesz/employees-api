@@ -4,7 +4,7 @@ const { createLogger, transports, format, info } = require("winston");
 const logger = createLogger({
   transports: [
     new transports.File({
-      filename: "utils/logs/info.log",
+      filename: "src/utils/logs/info.log",
       level: "info",
       format: format.combine(format.timestamp(), format.json()),
       handleExceptions: true,
