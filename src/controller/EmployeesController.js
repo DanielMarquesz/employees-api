@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Employees = require("../models/Employees");
 const logger = require("../utils/logs/logger");
-const {
-  employeesSchema,
-} = require("../utils/validations/models/employeesSchema");
+const { employeesSchema } = require("../utils/validations/models/employeesSchema");
 const { verifyToken } = require("../utils/authentication/auth");
 
 router.get("/", async (req, res) => {
@@ -63,8 +61,7 @@ router.put("/edit/:id", verifyToken, async (req, res) => {
       await employeesSchema.validateAsync(req.body);
 
       let employees = { ...req.body };
-      await Employees.update(employees, { where: { id: id } }).then(
-        (employees) => {
+      await Employees.update(employees, { where: { id: id } }).then((employees) => {
           if (employees[0] === 0) {
             logger.log(`error`, `Not Found`);
             res.sendStatus(404);
@@ -86,8 +83,7 @@ router.delete("/:id", verifyToken, async (req, res) => {
   if (isNaN(id)) res.sendStatus(400);
   else {
     try {
-      await Employees.destroy({ where: { id: id } })
-      .then((employees) => {
+      await Employees.destroy({ where: { id: id } }).then((employees) => {
         if (employees === 0) {
           logger.log(`error`, `Not Found`);
           res.sendStatus(404);
