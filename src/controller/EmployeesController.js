@@ -8,15 +8,16 @@ const {
 const { verifyToken } = require("../utils/authentication/auth");
 
 router.get("/", async (req, res) => {
-  await Employees.findAll()
-    .then((employees) => {
+
+  try {
+    await Employees.findAll().then((employees) => {
       res.status(200).json(employees);
     })
-    .catch((err) => {
-      logger.log(`error`, err);
-      res.status(500).send(err);
-    });
-});
+  } catch(err) {
+    logger.log(`error`, err);
+    res.status(500).send(err);
+  }  
+})
 
 router.get("/:id", async (req, res) => {
   let id = req.params.id;
@@ -33,9 +34,9 @@ router.get("/:id", async (req, res) => {
         }
       });
     }
-  } catch (error) {
-    logger.log(`error`, error);
-    res.status(500).send(error);
+  } catch (err) {
+    logger.log(`error`, err);
+    res.status(500).send(err);
   }
 });
 
