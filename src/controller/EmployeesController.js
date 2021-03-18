@@ -1,11 +1,8 @@
-const express = require("express");
-const router = express.Router();
 const Employees = require("../models/Employees");
 const logger = require("../utils/logs/logger");
 const { employeesSchema } = require("../utils/validations/models/employeesSchema");
-const { verifyToken } = require("../utils/authentication/auth");
 
-class EmployeesControllerClass {
+class EmployeesController {
 
   consult = async (req, res) => {
     try {
@@ -101,4 +98,4 @@ class EmployeesControllerClass {
 
 }
 
-module.exports = EmployeesControllerClass;
+module.exports = EmployeesController;
