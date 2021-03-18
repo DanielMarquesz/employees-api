@@ -9,6 +9,4 @@ if(process.env.JAWSDB_URL) {
   const connection = new Sequelize(configDatabase);
 }
 
-
-
 module.exports = connection;
