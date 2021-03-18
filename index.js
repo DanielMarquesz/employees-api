@@ -8,9 +8,7 @@ const UsersController = require("./src/controller/UsersController");
 const logger = require("./src/utils/logs/logger");
 
 app.use(bodyParser.json());
-
 app.use(router);
-app.use("/occupations", OccupationsController);
 app.use("/users", UsersController);
 
 const port = process.env.PORT || 3000;
