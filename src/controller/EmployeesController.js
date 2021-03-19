@@ -64,7 +64,7 @@ class EmployeesController {
               logger.log(`error`, `Not Found`);
               res.sendStatus(404);
             } else {
-              res.sendStatus(201);
+              res.sendStatus(200);
             }
           }
         );
