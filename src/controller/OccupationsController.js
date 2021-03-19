@@ -3,8 +3,7 @@ const logger = require("../utils/logs/logger")
 const { occupationSchema } = require("../utils/validations/models/occupationSchema")
 class OccupationsController {
 
-  consult = async (req, res) => {
-    console.log("chamou papai")
+  consult = async (req, res) => {    
     await Occupations.findAll().then((occupations) => {
         res.status(200).json(occupations)
       })
