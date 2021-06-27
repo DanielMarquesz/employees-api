@@ -30,6 +30,7 @@ Its an entitie that provides access to the endpoits below.
     - https://c0mpany-api.herokuapp.com/occupations - POST
     - https://c0mpany-api.herokuapp.com/occupations/edit/{id} - PATCH
     - https://c0mpany-api.herokuapp.com/occupations/{id} - DELETE
+    - https://c0mpany-api.herokuapp.com/users/login - POST
 
 To have acess to those endpois ts necessary to login in:
 
