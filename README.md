@@ -1,28 +1,73 @@
-# API Rest: Empregados - Desafio #02
+# API Rest: Employees - Challenge #02
 
-## Índice
+## Index
 
-* [Objetivo](#objetivo)
-* [Entidades](#entidades)
-* [Como Usar](#como-usar)
-* [Rotas](#rotas)
-  * [Empregados](#rotas-de-empregados)
-  * [Ocupações](#rotas-de-ocupações)
-
-
-
-
-## Objetivo
-
-Api desenvolvida com intuito de permitir operações de CRUD (Create - Read - Update - Delete), utilizando duas entidades: Empregados e Ocupações.
-Visando a agilidade, a tabela de ocupações permite o cadastro de funções que um funcionário pode exercer em uma empresa, logo a tabela de empregados tem um relacionamento 1:1 com a tabela ocupações.
+* [Goal](#goal)
+* [Entities](#entities)
+* [How use](#how-use)
+* [Routes](#routes)
+  * [Users](#users)
+  * [Employees](#employees-routes)
+  * [Occupations](#occupation-routes)
 
 
-## Entidades
+## Goal
 
-### Empregados 
+Api developed in order to allow CRUD operations (Create - Read - Update - Delete), using two entities: Employees and Occupations.
+For agility, the occupations table allows the registration of functions that an employee can perform in a company, so the employees table has a 1: 1 relationship with the occupations table.
 
-Campo  | Valor | Tipo
+
+## Entities
+
+### Users
+
+Its an entitie that provides access to the endpoits below.
+
+    - https://c0mpany-api.herokuapp.com/employees - POST
+    - https://c0mpany-api.herokuapp.com/employees/edit/{id} - PUT
+    - https://c0mpany-api.herokuapp.com/employees/{id} - DELETE
+
+    - https://c0mpany-api.herokuapp.com/occupations - POST
+    - https://c0mpany-api.herokuapp.com/occupations/edit/{id} - PATCH
+    - https://c0mpany-api.herokuapp.com/occupations/{id} - DELETE
+    - https://c0mpany-api.herokuapp.com/users/login - POST
+
+To have acess to those endpois ts necessary to login in:
+
+### @Post - https://c0mpany-api.herokuapp.com/users/login
+
+Passing the following structure:
+
+```
+{
+	"email": "mail@mail.com",
+	"password": "123"
+}
+``` 
+After that you will received a token that its necessary to insert in your API tool, you can follow the documentation of insmnia if you are new: [Tutorial Insomnia](https://support.insomnia.rest/article/174-authentication).
+
+
+### @Post - https://c0mpany-api.herokuapp.com/users/create
+
+To create a new user just use this example:
+
+```
+{
+	"name":"any_mail",
+	"email": "mail@email.com",
+	"password": "123"
+}
+``` 
+
+### @Get - https://c0mpany-api.herokuapp.com/users
+
+To see all the users in the database.
+
+<hr>
+
+### Employees 
+
+Field  | Value | Type
  :------------- |  :-------------: | :-------------:
 Id  | Integer  | Pk, Not Null
 name | Varchar(128)  | Not Null
@@ -32,58 +77,58 @@ updatedAt | timestamp | Not Null
 
 
 
-### Ocupações 
+### Occupations 
 
-Campo  | Valor | Tipo
+Field  | Value | Type
  :------------- |  :-------------: | :-------------:
 Id  | Integer  | Pk, Not Null
 name | Varchar(128)  | Not Null
 createdAt | timestamp | Not Null
 updatedAt | timestamp | Not Null
 
-# Como usar
-##### [Voltar ao índice](#índice)
-Através de uma das ferramentas de testes de Apis: [Postman](https://www.postman.com) ou [Insomnia](https://insomnia.rest).
-Você pode baixar o [arquivo](https://drive.google.com/file/d/1lW4pUW0LmomPf7nrtcxDqsYoAhxbM1uz/view?usp=sharing) e importar em algun desses programas para ter as rotas configuradas.
-Tendo em mente que para cadastrar um funcionário é necessário antes cadastrar uma ocupação.
+# How use
+##### [Back to Index](#index)
+Through one of the apis testing tools: [Postman](https://www.postman.com) or [Insomnia](https://insomnia.rest).
+You can download the [file](https://drive.google.com/file/d/1lW4pUW0LmomPf7nrtcxDqsYoAhxbM1uz/view?usp=sharing) and import into some of these programs to have the routes configured.
+Bearing in mind that to register an employee it is necessary to register an occupation beforehand.
 
-- http://restemployeesapi-com.umbler.net/employees/{rotadefinida} - Para as Rotas de Empregados
-- http://restemployeesapi-com.umbler.net/occupations/{rotadefinida} - Para as Rotas de Ocupações 
+- https://c0mpany-api.herokuapp.com/employees - To the Employess routes
+- https://c0mpany-api.herokuapp.com/occupations - To the Occupations routes
 
 
-# Rotas
-##### [Voltar ao índice](#índice)
+# Routes
+##### [Back to index](#index)
 <hr>
 
-### Rotas de empregados
+### Employees routes
 
-#### @Get: http://restemployeesapi-com.umbler.net/employees/list
+#### @Get: https://c0mpany-api.herokuapp.com/employees
 
 
-* Retorna todos os usuários cadastrados no sistema
+* Return all the users in database.
 
-Status Code | Descrição | 
+Status Code | Description | 
  :------------- |  :-------------: |
-200  | Request retornada com sucesso  | 
-500 | Erro interno no servidor  | 
+200  | Request returned successfully  | 
+500 | Internal server error  | 
 
 
-#### @Get: http://restemployeesapi-com.umbler.net/employees/list/{id}
+#### @Get: https://c0mpany-api.herokuapp.com/employees/{id}
 
-* Passando um id para retornar um usuário específico
+* Passing an id to return a specific user
 
-Status Code | Descrição | 
+Status Code | Description | 
  :------------- |  :-------------: |
-200  | Requisição retornada com sucesso  | 
-400 | Requisição inválida ao servidor  |
-404 | Id não encontrado | 
-500 | Erro interno no servidor  | 
+200  | Request returned successfully  | 
+400 | Invalid request  |
+404 | Request not found | 
+500 | Internal server error  | 
 
 
 
-#### @Post: http://restemployeesapi-com.umbler.net/employees/create
+#### @Post: https://c0mpany-api.herokuapp.com/employees
 
-* Cadastra um funcionário no sistema
+* Register an employee in the system
 
 * Payload
 
@@ -97,15 +142,15 @@ Status Code | Descrição |
 ```
 
 
-Status Code | Descrição | 
+Status Code | Description | 
  :------------- |  :-------------: |
-201  | Entidade criada com sucesso  | 
-400 | Requisição inválida ao servidor  |
+201  | Entity created successfully  | 
+400 | Invalid request  |
 
 
-#### @Put: http://restemployeesapi-com.umbler.net/employees/edit/{id}
+#### @Put: https://c0mpany-api.herokuapp.com/employees/edit/{id}
 
-* Cadastra um funcionário no sistema
+* Update an employee data in the system
 
 * Payload
 
@@ -119,54 +164,54 @@ Status Code | Descrição |
 ```
 
 
-Status Code | Descrição | 
+Status Code | Description | 
  :------------- |  :-------------: |
-201  | Entidade criada com sucesso  | 
-400 | Requisição inválida ao servidor  | 
-404 | Entidade não encontrada |
+201  | Entity created successfully  | 
+400 | Invalid request  | 
+404 | Request not found |
 
-#### @Delete: http://restemployeesapi-com.umbler.net/employees/delete/{id}
+#### @Delete: https://c0mpany-api.herokuapp.com/employees/{id}
 
-* Deleta um funcionário no sistema
+* Deletes an employee from the database
 
-Status Code | Descrição | 
+Status Code | Description | 
  :------------- |  :-------------: |
-200  | Requisição retornada com sucesso  | 
-400 | Requisição inválida ao servidor  | 
-404 | Id não encontrado | 
-500 | Erro interno no servidor |
-##### [Voltar ao índice](#índice)
+200  | Request returned successfully  | 
+400 | Invalid request  | 
+404 | Request not found | 
+500 | Internal server error |
+##### [Back to index](#index)
 <hr>
 
-### Rotas de ocupações
-##### [Voltar ao índice](#índice)
+### Occupations routes
+##### [Back to index](#index)
 
-#### @Get: http://restemployeesapi-com.umbler.net/occupations/list
+#### @Get: https://c0mpany-api.herokuapp.com/occupations
 
 
-* Retorna todos as ocupações cadastradas no sistema
+* Returns all occupations registered in the database
 
-Status Code | Descrição | 
+Status Code | Description | 
  :------------- |  :-------------: |
-200  | Requisição retornada com sucesso  | 
-500 | Erro interno no servidor  | 
+200  | Request returned successfully   | 
+500 | Internal server error  | 
 
 
-#### @Get: http://restemployeesapi-com.umbler.net/occupations/list/{id}
+#### @Get: https://c0mpany-api.herokuapp.com/occupations/{id}
 
-* Passando um id para retornar um usuário específico
+* Passing an id to return a specific user
 
-Status Code | Descrição | 
+Status Code | Description | 
  :------------- |  :-------------: |
-200  | Request retornada com sucesso  | 
-400 | Requisição inválida ao servidor  |
-404 | Id não encontrado | 
-500 | Erro interno no servidor  | 
+200  | Request returned successfully  | 
+400 | Invalid request  |
+404 | Request not found | 
+500 | Internal server error | 
 
 
-#### @Post: http://restemployeesapi-com.umbler.net/occupations/create
+#### @Post: https://c0mpany-api.herokuapp.com/occupations
 
-* Cadastra uma ocupação no sistema
+* Register an occupation in the system
 
 * Payload
 
@@ -177,15 +222,15 @@ Status Code | Descrição |
 }
 ```
 
-Status Code | Descrição | 
+Status Code | Description | 
  :------------- |  :-------------: |
-201  | Entidade criada com sucesso  | 
-400 | Requisição inválida ao servidor | 
+201  | Entity created successfully  | 
+400 | Invalid request | 
 
 
-#### @Patch: http://restemployeesapi-com.umbler.net/occupations/edit/{id}
+#### @Patch: https://c0mpany-api.herokuapp.com/occupations/edit/18
 
-* Edita o registro selecionado.
+* Edit the selected record.
 
 * Payload
 
@@ -197,22 +242,22 @@ Status Code | Descrição |
 ```
 
 
-Status Code | Descrição | 
+Status Code | Description | 
  :------------- |  :-------------: |
-201  | Entidade criada com sucesso  | 
-400 | Requisição inválida ao servidor  | 
-404 | Id não encontrado | 
+201  | Entity updated successfully  | 
+400 | Invalid request  | 
+404 | Request not found | 
 
 
-#### @Delete: http://restemployeesapi-com.umbler.net/occupations/delete/{id}
+#### @Delete: https://c0mpany-api.herokuapp.com/occupations/{id}
 
-* Deleta um registro selecionado
+* Deletes a selected record
 
-Status Code | Descrição | 
+Status Code | Description | 
  :------------- |  :-------------: |
-200  | Requisição feita com sucesso  | 
-400 | Requisição inválida ao servidor  | 
-404 | Id não encontrado | 
-500 | Erro interno do servidor |
+200  | Request returned successfully  | 
+400 | Invalid request  | 
+404 | Request not found | 
+500 | Internal server error |
 
-##### [Voltar ao índice](#índice)
+##### Back to index](#index)
