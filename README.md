@@ -34,7 +34,7 @@ Its an entitie that provides access to the endpoits below.
 
 To have acess to those endpois ts necessary to login in:
 
-### @Post - https://c0mpany-api.herokuapp.com/users/login
+### Post - https://c0mpany-api.herokuapp.com/users/login
 
 Passing the following structure:
 
@@ -47,7 +47,7 @@ Passing the following structure:
 After that you will received a token that its necessary to insert in your API tool, you can follow the documentation of insmnia if you are new: [Tutorial Insomnia](https://support.insomnia.rest/article/174-authentication).
 
 
-### @Post - https://c0mpany-api.herokuapp.com/users/create
+### Post - https://c0mpany-api.herokuapp.com/users/create
 
 To create a new user just use this example:
 
@@ -59,7 +59,7 @@ To create a new user just use this example:
 }
 ``` 
 
-### @Get - https://c0mpany-api.herokuapp.com/users
+### Get - https://c0mpany-api.herokuapp.com/users
 
 To see all the users in the database.
 
@@ -113,7 +113,7 @@ Status Code | Description |
 500 | Internal server error  | 
 
 
-#### @Get: https://c0mpany-api.herokuapp.com/employees/{id}
+#### Get: https://c0mpany-api.herokuapp.com/employees/{id}
 
 * Passing an id to return a specific user
 
@@ -126,7 +126,7 @@ Status Code | Description |
 
 
 
-#### @Post: https://c0mpany-api.herokuapp.com/employees
+#### Post: https://c0mpany-api.herokuapp.com/employees
 
 * Register an employee in the system
 
@@ -148,7 +148,7 @@ Status Code | Description |
 400 | Invalid request  |
 
 
-#### @Put: https://c0mpany-api.herokuapp.com/employees/edit/{id}
+#### Put: https://c0mpany-api.herokuapp.com/employees/edit/{id}
 
 * Update an employee data in the system
 
@@ -170,7 +170,7 @@ Status Code | Description |
 400 | Invalid request  | 
 404 | Request not found |
 
-#### @Delete: https://c0mpany-api.herokuapp.com/employees/{id}
+#### Delete: https://c0mpany-api.herokuapp.com/employees/{id}
 
 * Deletes an employee from the database
 
@@ -186,7 +186,7 @@ Status Code | Description |
 ### Occupations routes
 ##### [Back to index](#index)
 
-#### @Get: https://c0mpany-api.herokuapp.com/occupations
+#### Get: https://c0mpany-api.herokuapp.com/occupations
 
 
 * Returns all occupations registered in the database
@@ -197,7 +197,7 @@ Status Code | Description |
 500 | Internal server error  | 
 
 
-#### @Get: https://c0mpany-api.herokuapp.com/occupations/{id}
+#### Get: https://c0mpany-api.herokuapp.com/occupations/{id}
 
 * Passing an id to return a specific user
 
@@ -209,7 +209,7 @@ Status Code | Description |
 500 | Internal server error | 
 
 
-#### @Post: https://c0mpany-api.herokuapp.com/occupations
+#### Post: https://c0mpany-api.herokuapp.com/occupations
 
 * Register an occupation in the system
 
@@ -228,7 +228,7 @@ Status Code | Description |
 400 | Invalid request | 
 
 
-#### @Patch: https://c0mpany-api.herokuapp.com/occupations/edit/18
+#### Patch: https://c0mpany-api.herokuapp.com/occupations/edit/18
 
 * Edit the selected record.
 
@@ -249,7 +249,7 @@ Status Code | Description |
 404 | Request not found | 
 
 
-#### @Delete: https://c0mpany-api.herokuapp.com/occupations/{id}
+#### Delete: https://c0mpany-api.herokuapp.com/occupations/{id}
 
 * Deletes a selected record
 
