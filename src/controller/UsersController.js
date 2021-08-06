@@ -1,6 +1,9 @@
 const jwt = require("jsonwebtoken");
 const Users = require("../models/Users");
 const { JWTSecret } = require("../utils/authentication/auth");
+const qrcode = require('qrcode')
+const otplib = require('otplib');
+const authenticator = otplib.authenticator
 
 class UsersController {
 
@@ -26,12 +29,12 @@ class UsersController {
   }
 
   login = async (req, res) => {
-    var { email, password } = req.body
-  
+    let { email, password } = req.body
+    let type = 'admin'
     if (email != undefined) {
-      var user = await Users.findOne({ where: { email: email } })
+      let user = await Users.findOne({ where: { email: email } })
       if (user != undefined) {
-        if (user.password == password) {
+        if (user.password == password) {          
           jwt.sign(
             { id: user.id, email: user.email },
             JWTSecret,
@@ -41,7 +44,12 @@ class UsersController {
                 console.log(err)
                 res.status(400)
                 res.json({ err: "Falha interna" })
-              } else {
+              } else if(type === 'admin') {
+                res.status(200)
+                res.json({ token: token, name: user.name })
+                //res.redirect('/generate')
+              }
+              else {
                 res.status(200)
                 res.json({ token: token, name: user.name })
               }
@@ -58,6 +66,39 @@ class UsersController {
     } else {
       res.status(400);
       res.send({ err: "O E-mail enviado é inválido" })
+    }
+  }
+
+  generate2fa = (req, res) => {
+    console.log('xadrez')
+    const secret = authenticator.generateSecret();
+    const user = 'SpotMetrics'; // Name of the user in the db
+    const service = 'mOs';
+    const otpauth = authenticator.keyuri(user, service, secret);
+
+    try {
+      qrcode.toDataURL(otpauth, (err, imageUrl) => {
+        if (err) {
+          console.log('Error with QR');
+          return;
+        }
+        res.json({qrCodeImgae: imageUrl, secret: secret});
+        //res.redirect('/verify')
+        return
+      });
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+  verify2fa = async(req, res) => {
+    try {
+      const { token, secret } = req.body
+      const isValid = authenticator.check(token, secret);
+      res.json({permission: isValid})
+    } catch (err) {
+      res.send(err)
     }
   }
 }

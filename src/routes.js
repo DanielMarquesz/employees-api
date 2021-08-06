@@ -24,5 +24,7 @@ router.delete("/occupations/:id", verifyToken, OccupationsRoute.delete)
 router.get("/users", UsersRoute.consult)
 router.post("/users", UsersRoute.create)
 router.post("/users/login", UsersRoute.login)
+router.get("/users/generate", UsersRoute.generate2fa)
+router.post("/users/verify", UsersRoute.verify2fa)
 
 module.exports = router
