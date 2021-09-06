@@ -1,7 +1,7 @@
 const { DataTypes, Model } = require("sequelize");
 const connection = require("../database/connection");
 
-class Occupations extends Model {}
+class Occupations extends Model { }
 
 Occupations.init(
   {
@@ -13,7 +13,7 @@ Occupations.init(
   },
   {
     sequelize: connection,
-    modelName: "Occupations",
+    modelName: "occupations",
   }
 );
 
