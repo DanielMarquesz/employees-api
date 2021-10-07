@@ -10,3 +10,39 @@
 {"level":"info","message":"The server is running in : 3000","timestamp":"2021-09-06T05:53:17.140Z"}
 {"level":"error","message":"Not Found","timestamp":"2021-09-06T05:53:29.553Z"}
 {"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:02:06.026Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:24:56.143Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:27:32.410Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:28:10.931Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:28:26.615Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:28:35.782Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:28:41.626Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:28:51.480Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:29:11.929Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:29:15.474Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:29:17.332Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:29:20.287Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:29:22.228Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:29:36.466Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:30:43.649Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:30:57.138Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:31:03.832Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:31:31.800Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:32:07.673Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:33:08.885Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:33:17.364Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:33:21.279Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:33:32.205Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:33:47.283Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:34:33.306Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:34:36.569Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:35:04.547Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:35:42.239Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:37:22.397Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:38:13.669Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:46:37.977Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T01:46:55.447Z"}
+{"level":"error","message":"ValidationError: \"OccupationId\" is required","timestamp":"2021-10-07T02:02:43.856Z"}
+{"level":"error","message":"ValidationError: \"OccupationId\" is required","timestamp":"2021-10-07T02:02:59.567Z"}
+{"level":"error","message":"ValidationError: \"OccupationId\" is required","timestamp":"2021-10-07T02:03:09.194Z"}
+{"level":"error","message":"ValidationError: \"OccupationId\" is required","timestamp":"2021-10-07T02:03:21.022Z"}
+{"level":"info","message":"The server is running in : 3000","timestamp":"2021-10-07T02:14:56.547Z"}

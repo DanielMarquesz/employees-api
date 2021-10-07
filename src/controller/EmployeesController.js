@@ -5,30 +5,31 @@ const { employeesSchema } = require("../utils/validations/models/employeesSchema
 class EmployeesController {
 
   consult = async (req, res) => {
+
+
     try {
-      await Employees.findAll().then((employees) => {        
-        res.status(200).json(employees);
-      })
-    } catch(err) {
-      logger.log(`error`, err);
+
+      const employees = await Employees.findAll()
+
+      if (employees) {
+        res.status(200).json({ employees })
+      }
+    } catch (err) {
+      logger.log('error', err);
       res.status(500).send(err);
-    }  
+    }
   }
 
   consultOne = async (req, res) => {
-    let id = req.params.id;
-  
+
+    let { id } = req.params;
+
     try {
-      if (isNaN(id)) res.sendStatus(400);
-      else {
-        await Employees.findByPk(id).then((employees) => {
-          if (employees === null) {
-            logger.log(`error`, `Not Found`);
-            res.sendStatus(404);
-          } else {
-            res.status(200).json(employees);
-          }
-        });
+      const employee = await Employees.findByPk(id);
+      if (employee) {
+        res.status(200).json({ employee });
+      } else if (!employee) {
+        res.status(404).json({ message: 'Employee not foud!' });
       }
     } catch (err) {
       logger.log(`error`, err);
@@ -40,7 +41,7 @@ class EmployeesController {
     try {
       await employeesSchema.validateAsync(req.body);
       let employees = { ...req.body };
-  
+
       await Employees.create(employees).then((employees) => {
         res.status(201).json(employees);
       });
@@ -50,23 +51,23 @@ class EmployeesController {
     }
   };
 
-  edit =  async (req, res) => {
+  edit = async (req, res) => {
     let id = req.params.id;
-  
+
     if (isNaN(id)) res.sendStatus(400);
     else {
       try {
         await employeesSchema.validateAsync(req.body);
-  
+
         let employees = { ...req.body };
         await Employees.update(employees, { where: { id: id } }).then((employees) => {
-            if (employees[0] === 0) {
-              logger.log(`error`, `Not Found`);
-              res.sendStatus(404);
-            } else {
-              res.sendStatus(200);
-            }
+          if (employees[0] === 0) {
+            logger.log(`error`, `Not Found`);
+            res.sendStatus(404);
+          } else {
+            res.sendStatus(200);
           }
+        }
         );
       } catch (error) {
         logger.log(`error`, `${error}`);
@@ -77,7 +78,7 @@ class EmployeesController {
 
   delete = async (req, res) => {
     let id = req.params.id;
-  
+
     if (isNaN(id)) res.sendStatus(400);
     else {
       try {
@@ -89,10 +90,10 @@ class EmployeesController {
             res.sendStatus(200);
           }
         })
-      }catch(err) {
+      } catch (err) {
         logger.log(`error`, `${err}`);
-          res.status(500).send(err);
-      }     
+        res.status(500).send(err);
+      }
     }
   }
 

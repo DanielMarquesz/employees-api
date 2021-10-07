@@ -27,7 +27,7 @@ class UsersController {
 
   login = async (req, res) => {
     var { email, password } = req.body
-  
+
     if (email != undefined) {
       var user = await Users.findOne({ where: { email: email } })
       if (user != undefined) {
@@ -42,8 +42,7 @@ class UsersController {
                 res.status(400)
                 res.json({ err: "Falha interna" })
               } else {
-                res.status(200)
-                res.json({ token: token, name: user.name })
+                res.set('x-access-token', token).status(200).json({ token: token, name: user.name })
               }
             }
           );
