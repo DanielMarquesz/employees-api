@@ -5,15 +5,10 @@ const { employeesSchema } = require("../utils/validations/models/employeesSchema
 class EmployeesController {
 
   consult = async (req, res) => {
-
-
     try {
-
       const employees = await Employees.findAll()
 
-      if (employees) {
-        res.status(200).json({ employees })
-      }
+      res.status(200).json({ employees })
     } catch (err) {
       logger.log('error', err);
       res.status(500).send(err);
