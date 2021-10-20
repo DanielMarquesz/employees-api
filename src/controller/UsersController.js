@@ -1,37 +1,41 @@
 const jwt = require("jsonwebtoken");
 const Users = require("../models/Users");
 const { JWTSecret } = require("../utils/authentication/auth");
+const bcrypt = require('bcrypt');
 
 class UsersController {
 
   consult = async (req, res) => {
-    await Users.findAll()
-      .then((users) => {
-        res.send(users)
-      })
-      .catch((err) => {
-        req.send(err)
-      });
+    try {
+      const users = await Users.findAll()
+
+      res.status(200).send({ users })
+    } catch (err) {
+      res.status(500).send(err);
+    }
   }
 
   create = async (req, res) => {
+    const users = { ...req.body }
+    const saltRounds = 5
+    users.password = bcrypt.hashSync(users.password, saltRounds)
     try {
-      let users = { ...req.body }
       await Users.create(users).then((users) => {
         res.status(201).json(users)
       });
-    } catch (error) {
-      res.send(error)
+    } catch (err) {
+      res.send(err)
     }
   }
 
   login = async (req, res) => {
     var { email, password } = req.body
-  
+
     if (email != undefined) {
-      var user = await Users.findOne({ where: { email: email } })
+      var user = await Users.findOne({ where: { email } })
+      const result = bcrypt.compareSync(password, user.password);
       if (user != undefined) {
-        if (user.password == password) {
+        if (result) {
           jwt.sign(
             { id: user.id, email: user.email },
             JWTSecret,
@@ -42,8 +46,7 @@ class UsersController {
                 res.status(400)
                 res.json({ err: "Falha interna" })
               } else {
-                res.status(200)
-                res.json({ token: token, name: user.name })
+                res.set('x-access-token', token).status(200).json({ token: token, name: user.name })
               }
             }
           );
