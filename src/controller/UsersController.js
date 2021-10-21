@@ -29,10 +29,10 @@ class UsersController {
   }
 
   login = async (req, res) => {
-    var { email, password } = req.body
+    const { email, password } = req.body
 
     if (email != undefined) {
-      var user = await Users.findOne({ where: { email } })
+      const user = await Users.findOne({ where: { email } })
       const result = bcrypt.compareSync(password, user.password);
       if (user != undefined) {
         if (result) {
@@ -62,6 +62,8 @@ class UsersController {
       res.status(400);
       res.send({ err: "O E-mail enviado é inválido" })
     }
+
+    res.set('x-access-token', token).status(200).json({ token: token, name: user.name })
   }
 }
 
