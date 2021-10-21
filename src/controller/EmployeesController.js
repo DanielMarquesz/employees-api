@@ -4,10 +4,9 @@ const { employeesSchema } = require("../utils/validations/models/employeesSchema
 
 class EmployeesController {
 
-  consult = async (req, res) => {
+  consult = async (_req, res) => {
     try {
       const employees = await Employees.findAll()
-
       res.status(200).json({ employees })
     } catch (err) {
       logger.log('error', err);
@@ -17,15 +16,14 @@ class EmployeesController {
 
   consultOne = async (req, res) => {
 
-    let { id } = req.params;
+    const { id } = req.params;
 
     try {
       const employee = await Employees.findByPk(id);
-      if (employee) {
-        res.status(200).json({ employee });
-      } else if (!employee) {
+      if (!employee) {
         res.status(404).json({ message: 'Employee not foud!' });
       }
+      res.status(200).json({ employee });
     } catch (err) {
       logger.log(`error`, err);
       res.status(500).send(err);
@@ -35,26 +33,26 @@ class EmployeesController {
   create = async (req, res) => {
     try {
       await employeesSchema.validateAsync(req.body);
-      let employees = { ...req.body };
+      const employees = { ...req.body };
 
       await Employees.create(employees).then((employees) => {
         res.status(201).json(employees);
       });
-    } catch (error) {
-      logger.log(`error`, `${error}`);
-      res.status(400).send(error.details[0].message);
+    } catch (err) {
+      logger.log(`error`, `${err}`);
+      res.status(400).send(err.details[0].message);
     }
   };
 
   edit = async (req, res) => {
-    let id = req.params.id;
+    const id = req.params.id;
 
     if (isNaN(id)) res.sendStatus(400);
     else {
       try {
         await employeesSchema.validateAsync(req.body);
 
-        let employees = { ...req.body };
+        const employees = { ...req.body };
         await Employees.update(employees, { where: { id: id } }).then((employees) => {
           if (employees[0] === 0) {
             logger.log(`error`, `Not Found`);
