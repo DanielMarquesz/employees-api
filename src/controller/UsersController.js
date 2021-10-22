@@ -8,7 +8,6 @@ class UsersController {
   consult = async (req, res) => {
     try {
       const users = await Users.findAll()
-
       res.status(200).send({ users })
     } catch (err) {
       res.status(500).send(err);
