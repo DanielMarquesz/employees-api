@@ -13,3 +13,5 @@ app.listen(port, () => {
   logger.log(`info`, `The server is running in : ${port}`);
   console.log(`The server is running in : localhost:${port}`);
 });
+
+module.exports = app
